@@ -19,38 +19,27 @@ class LogBase(object):
 
     # Кликнуть на линк
     def click_xpath(self, xpath):
-        WebDriverWait(self.driver, TIME_FOR_WAIT).until(
-            EC.element_to_be_clickable((By.XPATH, xpath)))
-        while True:
-            try:
-                self.driver.find_element_by_xpath(xpath).click()
-                break
-            except StaleElementReferenceException:
-                continue
+        self.driver.find_element_by_xpath(xpath).click()
 
-    # Найти видимиый xpath
+    # Найти xpath
     def locate_xpath(self, xpath):
-        WebDriverWait(self.driver, TIME_FOR_WAIT).until(
-            EC.presence_of_element_located((By.XPATH, xpath)))
-        assert self.driver.find_element_by_xpath(xpath)
+        self.driver.find_element_by_xpath(xpath)
+
+    # Найти xpath и проверить видимость элемента. Возвращает True or False
+    def displayed_xpath(self, xpath):
+        return self.driver.find_element_by_xpath(xpath).is_displayed()
 
     # Кликнуть на линк
     def click_text(self, link):
-        WebDriverWait(self.driver, TIME_FOR_WAIT).until(
-            EC.element_to_be_clickable((By.XPATH, '//*[text()="%s"]' % link)))
-        while True:
-            try:
-                self.driver.find_element_by_xpath('//*[text()="%s"]' % link).click()
-                break
-            except StaleElementReferenceException:
-                continue
+        self.driver.find_element_by_xpath('//*[text()="%s"]' % link).click()
+
+    #  Найти видимиый текст что содержит в себе
+    def locate_text(self, text):
+        self.driver.find_element_by_xpath('//*[text()="%s"]' % text)
 
     # Найти видимиый текст что содержит в себе
-    def locate_text_part(self, text, time_for_search=TIME_FOR_WAIT):
-        WebDriverWait(self.driver, time_for_search).until(
-            EC.presence_of_element_located((By.XPATH, '//*[contains(text(), "%s")]' % text))
-        )
-        assert self.driver.find_element_by_xpath('//*[contains(text(), "%s")]' % text)
+    def locate_text_part(self, text):
+        self.driver.find_element_by_xpath('//*[contains(text(), "%s")]' % text)
 
     # Найти поле по xpath и ввести в него текст
     def input_text_to_xpath(self, text, xpath):
@@ -61,3 +50,8 @@ class LogBase(object):
     # Then scroll to end of the page
     def open_home_page(self, url):
         self.driver.get(url)
+
+    # Return current url
+    def current_url(self):
+        return self.driver.current_url
+
