@@ -1,3 +1,12 @@
+import json
+import random
 
 class LocatorsBase(object):
-    pass
+    my_data = json.loads(open("param.json").read())
+    login = my_data['login']
+    password = my_data['password']
+    home_page = my_data['server_sleeklogos']
+    platform_list = ['All', 'iOS 10', 'Windows 10', 'Windows 8', 'Material',
+                     'Android 4', 'Color', 'Office']
+    search_text_list = ['Google', 'Facebook', 'Icon', 'Game', 'Phone']
+    search_text = random.choice(search_text_list)

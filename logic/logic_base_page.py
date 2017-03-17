@@ -37,6 +37,14 @@ class LogBase(object):
     def locate_text(self, text):
         self.driver.find_element_by_xpath('//*[text()="%s"]' % text)
 
+    # Кликнуть на линк
+    def click_text_part(self, text):
+        self.driver.find_element_by_xpath('//*[contains(text(), "%s")]' % text).click()
+
+    # Кликнуть на линк
+    def click_value(self, value):
+        self.driver.find_element_by_xpath('.//*[@value="%s"]' % value).click()
+
     # Найти видимиый текст что содержит в себе
     def locate_text_part(self, text):
         self.driver.find_element_by_xpath('//*[contains(text(), "%s")]' % text)
@@ -54,4 +62,21 @@ class LogBase(object):
     # Return current url
     def current_url(self):
         return self.driver.current_url
+
+    # Генерирует рандомное имейл из 6 значений из списка и + '@gmail.com'
+    def random_email(self):
+        email = ''
+        for x in range(6):
+            email = email + random.choice(list('qwertyuiopasdfghjklzxcvbnm'))
+        return email + '@gmail.com'
+
+    # Генерирует рандомный текст
+    def random_text(self, number_of_testItems):
+        text = ''
+        symbols = 'qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM1234567890'
+        for x in range(number_of_testItems):
+            text = text + \
+                random.choice(
+                    list(symbols))
+        return text
 

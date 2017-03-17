@@ -21,7 +21,7 @@ class ContextSleekLogos:
         cls.logBase.click_text('Login')
         cls.logBase.input_text_to_xpath(login, LocSleekLogos.email_field)
         cls.logBase.input_text_to_xpath(password, LocSleekLogos.password_field)
-        cls.logBase.click_xpath(LocSleekLogos.login_submit)
+        cls.logBase.click_value('Login')
 
     def teardown_class(cls):
         cls.driver.close()
