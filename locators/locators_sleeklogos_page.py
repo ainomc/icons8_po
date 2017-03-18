@@ -30,4 +30,22 @@ class LocSleekLogos(LocatorsBase):
     icon_info_in_icon_page = './/*[@ng-bind-html="mainSubtitleText"]'
     icon_in_icon_page = './/*[@class="col-md-4 m-full-width b-main-icon m-main-icon"]'
 
+    collections = '//span[contains(., "Collections")]'
+    create_collection = './/*[@class="b-collection-preview-create"]'
+    collection_name = './/*[@ng-model="collsControl.newCollName"]'
+    confirm_name = './/*[@ng-click="collsControl.renameCollection()"]'
+    first_collection = '//*[@class="b-collections-container"]/div[1]'
+    first_icon_in_collection = './/*[@class="icons-set__icon"]'
+    delete_collection_icon = '//span[@class="c-btn m-transparent"]'
+    confirm_delete_icon = '//div[@class="c-btn modal__action-confirm modal__action"]'
+    delete_menu_collections = '''.//*[@ng-class="{'m-edit': collectionsEdit}"]'''
+    delete_collection = './/*[@ng-repeat="coll in colls.colls"][%s]/*[@class="b-collection-delete"]'
+    confirm_delete_collection = '//*[@class="c-btn modal__action-confirm modal__action"]'
+    rename_collection = './/*[@ng-click="collsControl.showRenaming()"]'
+
+    generate_html = '//*[@class="b-bar-btns m-icon m-single-btn"]/*[2]/btn'
+    open_color_panel = '''.//*[@ng-include="'/template-icon.html'"][1]/descendant::*[@class="off-click-recolor"]'''
+    grayscale = '//*[@class="colors"]/descendant::*[@ng-repeat="color_ in colorsGray"][%s]' % random.randint(1, 5)
+    color = '//*[@class="colors-block"][2]/*[%s]' % random.randint(1, 10)
+
 

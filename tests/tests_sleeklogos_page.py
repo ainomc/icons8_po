@@ -44,11 +44,10 @@ class TestSleekLogos(ContextSleekLogos):
         assert 'icons8.com' in self.logBase.current_url()
 
     # 'My account' information
-    def tests_more_icons_button(self):
+    def tests_my_account(self):
         self.logBase.click_text_part('My Account')
         self.logBase.locate_text('Account')
         self.logBase.locate_text(LocSleekLogos.login)
-        #self.logBase.locate_text(ContextSleekLogos.login)
 
     # Check change email or password
     def tests_change_email_or_password(self):
@@ -94,6 +93,49 @@ class TestSleekLogos(ContextSleekLogos):
         self.logBase.click_xpath(LocSleekLogos.icon_name_in_icon_page)
         self.logBase.click_xpath(LocSleekLogos.icon_info_in_icon_page)
         self.logBase.click_xpath(LocSleekLogos.icon_in_icon_page)
+
+    # Add and delete new colletion
+    def test_add_collections(self):
+        self.logBase.click_xpath(LocSleekLogos.collections)
+        self.logBase.click_xpath(LocSleekLogos.create_collection)
+        self.logBase.click_xpath(LocSleekLogos.collections)
+        self.logBase.click_xpath(LocSleekLogos.rename_collection)
+        self.logBase.input_text_to_xpath(self.logBase.random_text(4), LocSleekLogos.collection_name)
+        self.logBase.click_xpath(LocSleekLogos.confirm_name)
+        self.logBase.click_xpath(LocSleekLogos.icons_resuilt)
+        self.logBase.locate_xpath(LocSleekLogos.first_collection)
+        self.logBase.click_xpath(LocSleekLogos.first_icon_in_collection)
+        self.logBase.click_xpath(LocSleekLogos.delete_collection_icon)
+        self.logBase.click_xpath(LocSleekLogos.confirm_delete_icon)
+        self.logBase.click_xpath(LocSleekLogos.delete_menu_collections)
+        self.logBase.click_all_and_confirm(LocSleekLogos.delete_collection, LocSleekLogos.confirm_delete_collection)
+
+    # Generate HTML
+    def test_generate_html(self):
+        self.logBase.locate_xpath(LocSleekLogos.icons_resuilt)
+        self.logBase.click_xpath(LocSleekLogos.generate_html)
+        self.logBase.locate_text_part('2 ways to insert icons')
+        self.logBase.locate_text_part('To show the icon')
+        self.logBase.locate_text_part('To use the icons for free please')
+        self.logBase.click_text_part('Our CDN')
+        self.logBase.locate_text_part('Icons are served from our CDN')
+
+    """
+    # Color Panel
+    def test_color_panel(self):
+        self.logBase.locate_xpath(LocSleekLogos.icons_resuilt)
+        self.logBase.click_xpath(LocSleekLogos.open_color_panel)
+        self.logBase.locate_xpath(LocSleekLogos.grayscale)
+        self.logBase.locate_xpath(LocSleekLogos.color)
+    """
+
+
+
+
+
+
+
+
 
 
 

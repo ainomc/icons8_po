@@ -1,10 +1,12 @@
 # -*- coding: utf-8 -*-
 import random
 import json
+import time
+
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
-from selenium.common.exceptions import StaleElementReferenceException
+from selenium.common.exceptions import StaleElementReferenceException, NoSuchElementException
 
 my_data = json.loads(open("param.json").read())
 url = my_data['server']
@@ -79,4 +81,26 @@ class LogBase(object):
                 random.choice(
                     list(symbols))
         return text
+
+    # Возвращае колличество єлементов
+    def elements_count(self, xpath):
+        count = 0
+        elements_number = 1
+        while True:
+            try:
+                self.driver.find_element_by_xpath(xpath % elements_number)
+                count += 1
+                elements_number += 1
+            except NoSuchElementException:
+                break
+        return count
+
+    # Кликает на все найденные элементы и потом еще кликает на кнопку
+    def click_all_and_confirm(self, click_all_xpath, confirm_xpath):
+        count = self.elements_count(click_all_xpath)
+        while count > 0:
+            self.driver.find_element_by_xpath(click_all_xpath % count).click()
+            time.sleep(3)
+            self.driver.find_element_by_xpath(confirm_xpath).click()
+            count -= 1
 
