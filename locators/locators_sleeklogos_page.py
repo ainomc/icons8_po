@@ -47,5 +47,25 @@ class LocSleekLogos(LocatorsBase):
     open_color_panel = '''.//*[@ng-include="'/template-icon.html'"][1]/descendant::*[@class="off-click-recolor"]'''
     grayscale = '//*[@class="colors"]/descendant::*[@ng-repeat="color_ in colorsGray"][%s]' % random.randint(1, 5)
     color = '//*[@class="colors-block"][2]/*[%s]' % random.randint(1, 10)
+    color_palette = '//*[@class="colors"]/descendant::*[@ng-class="{active: showPicker}"]'
+    canvas = '//*[@class="colors"]/descendant::*/canvas'
+
+    download_popup = '''.//*[@ng-class="{'m-single-page': pageType === 'single', 'm-icon-state':iconState == 'icon'}"]/*[1]'''
+    right_bar = '''//*[@i8-scroll-commander="vm.scrollCommander"]'''
+
+    small_size = '''.//*[@ng-show="!selectBlockFormat && !selectBlockAdvancedOption"]/*[1]'''
+    middele_size = '''//*[@ng-show="!selectBlockFormat && !selectBlockAdvancedOption"]/li[@class="b-option-item"][1]'''
+    big_size = '''//*[@ng-show="!selectBlockFormat && !selectBlockAdvancedOption"]/li[@class="b-option-item"][2]'''
+
+    png_type = './/*[@class="c-list m-nooverflow b-format"]/*[1]'
+    svg_type = './/*[@class="c-list m-nooverflow b-format"]/*[2]'
+    eps_type = './/*[@class="c-list m-nooverflow b-format"]/*[3]'
+    pdf_type = './/*[@class="c-list m-nooverflow b-format"]/*[4]'
+    font_type = './/*[@class="c-list m-nooverflow b-format"]/*[5]'
+    svg_set_type = './/*[@class="c-list m-nooverflow b-format"]/*[6]'
+
+    download = './/*[@class="b-bar-btns m-icon m-single-btn"]/*[1]'
+
+
 
 

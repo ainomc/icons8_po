@@ -90,9 +90,9 @@ class TestSleekLogos(ContextSleekLogos):
     def tests_icon_page(self):
         self.logBase.click_xpath(LocSleekLogos.icons_resuilt)
         self.logBase.click_xpath(LocSleekLogos.icon_name)
-        self.logBase.click_xpath(LocSleekLogos.icon_name_in_icon_page)
-        self.logBase.click_xpath(LocSleekLogos.icon_info_in_icon_page)
-        self.logBase.click_xpath(LocSleekLogos.icon_in_icon_page)
+        self.logBase.locate_xpath(LocSleekLogos.icon_name_in_icon_page)
+        self.logBase.locate_xpath(LocSleekLogos.icon_info_in_icon_page)
+        self.logBase.locate_xpath(LocSleekLogos.icon_in_icon_page)
 
     # Add and delete new colletion
     def test_add_collections(self):
@@ -120,14 +120,25 @@ class TestSleekLogos(ContextSleekLogos):
         self.logBase.click_text_part('Our CDN')
         self.logBase.locate_text_part('Icons are served from our CDN')
 
-    """
     # Color Panel
     def test_color_panel(self):
         self.logBase.locate_xpath(LocSleekLogos.icons_resuilt)
         self.logBase.click_xpath(LocSleekLogos.open_color_panel)
         self.logBase.locate_xpath(LocSleekLogos.grayscale)
         self.logBase.locate_xpath(LocSleekLogos.color)
-    """
+        self.logBase.click_xpath(LocSleekLogos.color_palette)
+        self.logBase.locate_xpath(LocSleekLogos.canvas)
+
+    # Download test PNG/Small size
+    def test_download_png_sml(self):
+        self.logBase.click_xpath(LocSleekLogos.download_popup)
+        self.logBase.move_mouse(LocSleekLogos.collections)
+        self.logBase.click_xpath(LocSleekLogos.small_size)
+        self.logBase.click_xpath(LocSleekLogos.png_type)
+        self.logBase.click_xpath(LocSleekLogos.download)
+        time.sleep(3)
+        self.logBase.del_by_extension('.png')
+
 
 
 
