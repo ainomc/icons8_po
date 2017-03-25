@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 import time
 from context.context_sleeklogos_page import ContextSleekLogos
-from logic.logic_base_page import LogBase
 from locators.locators_sleeklogos_page import LocSleekLogos
 
 class TestSleekLogos(ContextSleekLogos):
@@ -60,7 +59,7 @@ class TestSleekLogos(ContextSleekLogos):
     # Check login
     def tests_login(self):
         self.logBase.click_xpath(LocSleekLogos.logout)
-        self.logBase.open_home_page(LocSleekLogos.home_page)
+        self.logBase.open_home_page(LocSleekLogos.home_page_sleeklogos)
         self.logBase.click_xpath(LocSleekLogos.login_button)
         self.logBase.locate_text_part('Login to SleekLogos')
         self.logBase.locate_text('email')
@@ -75,7 +74,7 @@ class TestSleekLogos(ContextSleekLogos):
     # Check register
     def tests_register(self):
         self.logBase.click_xpath(LocSleekLogos.logout)
-        self.logBase.open_home_page(LocSleekLogos.home_page)
+        self.logBase.open_home_page(LocSleekLogos.home_page_sleeklogos)
         self.logBase.click_xpath(LocSleekLogos.register_button)
         self.logBase.locate_text_part('Register at SleekLogos')
         self.logBase.locate_text('email')

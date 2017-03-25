@@ -1,6 +1,5 @@
 
 import random
-import json
 from locators_base_page import LocatorsBase
 
 
