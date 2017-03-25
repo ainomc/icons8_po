@@ -50,12 +50,12 @@ class LocSleekLogos(LocatorsBase):
     color_palette = '//*[@class="colors"]/descendant::*[@ng-class="{active: showPicker}"]'
     canvas = '//*[@class="colors"]/descendant::*/canvas'
 
-    download_popup = '''.//*[@ng-class="{'m-single-page': pageType === 'single', 'm-icon-state':iconState == 'icon'}"]/*[1]'''
+    download_popup = '''.//*[@ng-class="{'m-single-page': pageType === 'single', 'm-icon-state':iconState == 'icon'}"]/*[1]/span[1]'''
     right_bar = '''//*[@i8-scroll-commander="vm.scrollCommander"]'''
 
-    small_size = '''.//*[@ng-show="!selectBlockFormat && !selectBlockAdvancedOption"]/*[1]'''
-    middele_size = '''//*[@ng-show="!selectBlockFormat && !selectBlockAdvancedOption"]/li[@class="b-option-item"][1]'''
-    big_size = '''//*[@ng-show="!selectBlockFormat && !selectBlockAdvancedOption"]/li[@class="b-option-item"][2]'''
+    small_size = '''.//*[@ng-controller="IconCtrl"]/descendant::li[@ng-show="isShowSize(size)"][1]'''
+    middle_size = '''.//*[@ng-controller="IconCtrl"]/descendant::li[@ng-show="isShowSize(size)"][2]'''
+    big_size = '''.//*[@ng-controller="IconCtrl"]/descendant::li[@ng-show="isShowSize(size)"][3]'''
 
     png_type = './/*[@class="c-list m-nooverflow b-format"]/*[1]'
     svg_type = './/*[@class="c-list m-nooverflow b-format"]/*[2]'
@@ -65,6 +65,16 @@ class LocSleekLogos(LocatorsBase):
     svg_set_type = './/*[@class="c-list m-nooverflow b-format"]/*[6]'
 
     download = './/*[@class="b-bar-btns m-icon m-single-btn"]/*[1]'
+
+    get_font = '''//*[@popup-target="'generate-font'"]'''
+    get_svg_set = '''.//*[@class="b-bar-btns m-collections"]/div[3]'''
+
+    open_icon_editor = '''.//*[@ng-mouseleave="showTooltipEffect[effect] = false"][1]/*[@src="'/effectBtn/'+effect+'.html'"]'''
+    editor_ui = './/*[@class="b-switch-effects-list"]/li[%s]'
+    icon_window = './/*[@class="b-editor-canvas-container"]'
+    size_show_icon = './/*[@class="b-preview f-right"]'
+    icon_color_edit = './/*[@class="b-editor-icon-actions f-left"]/descendant::*[@class="b-editor-recoler b-editor-recoler-icon off-click-recolor"]'
+    overlay_color_edit = './/*[@class="b-editor-icon-actions f-left"]/descendant::*[@class="b-editor-recoler off-click-recolor b-editor-recoler-overlay"]'
 
 
 

@@ -129,18 +129,162 @@ class TestSleekLogos(ContextSleekLogos):
         self.logBase.click_xpath(LocSleekLogos.color_palette)
         self.logBase.locate_xpath(LocSleekLogos.canvas)
 
+    # Icon editor
+    def test_icon_editor(self):
+        self.logBase.click_xpath(LocSleekLogos.open_icon_editor)
+        for ui_num in range(1, 9):
+            self.logBase.click_xpath(LocSleekLogos.editor_ui % ui_num)
+        self.logBase.locate_xpath(LocSleekLogos.icon_window)
+        self.logBase.locate_xpath(LocSleekLogos.size_show_icon)
+        self.logBase.locate_text('Save Effects')
+        self.logBase.locate_text('Cancel')
+
+    # color icon editor pop-up in icon editor
+    def test_icon_editor_icon_color_popup(self):
+        self.logBase.click_xpath(LocSleekLogos.open_icon_editor)
+        self.logBase.click_xpath(LocSleekLogos.icon_color_edit)
+        self.logBase.locate_xpath(LocSleekLogos.grayscale)
+        self.logBase.locate_xpath(LocSleekLogos.color)
+        self.logBase.click_xpath(LocSleekLogos.color_palette)
+        self.logBase.locate_xpath(LocSleekLogos.canvas)
+
+    # color overlay editor pop-up in icon editor
+    def test_icon_editor_overlay_color_popup(self):
+        self.logBase.click_xpath(LocSleekLogos.open_icon_editor)
+        self.logBase.click_xpath(LocSleekLogos.overlay_color_edit)
+        self.logBase.locate_xpath(LocSleekLogos.grayscale)
+        self.logBase.locate_xpath(LocSleekLogos.color)
+        self.logBase.click_xpath(LocSleekLogos.color_palette)
+        self.logBase.locate_xpath(LocSleekLogos.canvas)
+
     # Download test PNG/Small size
     def test_download_png_sml(self):
         self.logBase.click_xpath(LocSleekLogos.download_popup)
-        self.logBase.move_mouse(LocSleekLogos.collections)
         self.logBase.click_xpath(LocSleekLogos.small_size)
+        self.logBase.move_mouse(LocSleekLogos.open_color_panel)
         self.logBase.click_xpath(LocSleekLogos.png_type)
         self.logBase.click_xpath(LocSleekLogos.download)
-        time.sleep(3)
+        self.logBase.wait_presents_file('.png')
         self.logBase.del_by_extension('.png')
 
+    # Download test PNG/Middle size
+    def test_download_png_mdl(self):
+        self.logBase.click_xpath(LocSleekLogos.download_popup)
+        self.logBase.click_xpath(LocSleekLogos.middle_size)
+        self.logBase.move_mouse(LocSleekLogos.open_color_panel)
+        self.logBase.click_xpath(LocSleekLogos.png_type)
+        self.logBase.click_xpath(LocSleekLogos.download)
+        self.logBase.wait_presents_file('.png')
+        self.logBase.del_by_extension('.png')
 
+    # Download test PNG/Big size
+    def test_download_png_big(self):
+        self.logBase.click_xpath(LocSleekLogos.download_popup)
+        self.logBase.click_xpath(LocSleekLogos.big_size)
+        self.logBase.move_mouse(LocSleekLogos.open_color_panel)
+        self.logBase.click_xpath(LocSleekLogos.png_type)
+        self.logBase.click_xpath(LocSleekLogos.download)
+        self.logBase.wait_presents_file('.png')
+        self.logBase.del_by_extension('.png')
 
+    # Download test SVG/Small size
+    def test_download_svg_sml(self):
+        self.logBase.click_xpath(LocSleekLogos.download_popup)
+        self.logBase.click_xpath(LocSleekLogos.small_size)
+        self.logBase.move_mouse(LocSleekLogos.open_color_panel)
+        self.logBase.click_xpath(LocSleekLogos.svg_type)
+        self.logBase.click_xpath(LocSleekLogos.download)
+        self.logBase.wait_presents_file('.svg')
+        self.logBase.del_by_extension('.svg')
+
+    # Download test SVG/Middle size
+    def test_download_svg_mdl(self):
+        self.logBase.click_xpath(LocSleekLogos.download_popup)
+        self.logBase.click_xpath(LocSleekLogos.middle_size)
+        self.logBase.move_mouse(LocSleekLogos.open_color_panel)
+        self.logBase.click_xpath(LocSleekLogos.svg_type)
+        self.logBase.click_xpath(LocSleekLogos.download)
+        self.logBase.wait_presents_file('.svg')
+        self.logBase.del_by_extension('.svg')
+
+    # Download test SVG/Big size
+    def test_download_svg_big(self):
+        self.logBase.click_xpath(LocSleekLogos.download_popup)
+        self.logBase.click_xpath(LocSleekLogos.big_size)
+        self.logBase.move_mouse(LocSleekLogos.open_color_panel)
+        self.logBase.click_xpath(LocSleekLogos.svg_type)
+        self.logBase.click_xpath(LocSleekLogos.download)
+        self.logBase.wait_presents_file('.svg')
+        self.logBase.del_by_extension('.svg')
+
+    # Download test ESP/Small size
+    def test_download_esp_sml(self):
+        self.logBase.click_xpath(LocSleekLogos.download_popup)
+        self.logBase.click_xpath(LocSleekLogos.small_size)
+        self.logBase.move_mouse(LocSleekLogos.open_color_panel)
+        self.logBase.click_xpath(LocSleekLogos.eps_type)
+        self.logBase.click_xpath(LocSleekLogos.download)
+        self.logBase.wait_presents_file('.eps')
+        self.logBase.del_by_extension('.eps')
+
+    # Download test ESP/Middle size
+    def test_download_esp_mdl(self):
+        self.logBase.click_xpath(LocSleekLogos.download_popup)
+        self.logBase.click_xpath(LocSleekLogos.middle_size)
+        self.logBase.move_mouse(LocSleekLogos.open_color_panel)
+        self.logBase.click_xpath(LocSleekLogos.eps_type)
+        self.logBase.click_xpath(LocSleekLogos.download)
+        self.logBase.wait_presents_file('.eps')
+        self.logBase.del_by_extension('.eps')
+
+    # Download test ESP/Big size
+    def test_download_esp_big(self):
+        self.logBase.click_xpath(LocSleekLogos.download_popup)
+        self.logBase.click_xpath(LocSleekLogos.big_size)
+        self.logBase.move_mouse(LocSleekLogos.open_color_panel)
+        self.logBase.click_xpath(LocSleekLogos.eps_type)
+        self.logBase.click_xpath(LocSleekLogos.download)
+        self.logBase.wait_presents_file('.eps')
+        self.logBase.del_by_extension('.eps')
+
+    # Download test Get Font
+    def test_download_get_font(self):
+        self.logBase.click_xpath(LocSleekLogos.collections)
+        self.logBase.click_xpath(LocSleekLogos.create_collection)
+        self.logBase.click_xpath(LocSleekLogos.collections)
+        self.logBase.click_xpath(LocSleekLogos.rename_collection)
+        self.logBase.input_text_to_xpath(self.logBase.random_text(4), LocSleekLogos.collection_name)
+        self.logBase.click_xpath(LocSleekLogos.confirm_name)
+        self.logBase.click_xpath(LocSleekLogos.icons_resuilt)
+        self.logBase.locate_xpath(LocSleekLogos.first_collection)
+        self.logBase.click_xpath(LocSleekLogos.get_font)
+        self.logBase.wait_presents_file('.zip')
+        time.sleep(1)
+        self.logBase.del_by_extension('.zip')
+        self.logBase.click_xpath(LocSleekLogos.first_icon_in_collection)
+        self.logBase.click_xpath(LocSleekLogos.delete_collection_icon)
+        self.logBase.click_xpath(LocSleekLogos.confirm_delete_icon)
+        self.logBase.click_xpath(LocSleekLogos.delete_menu_collections)
+        self.logBase.click_all_and_confirm(LocSleekLogos.delete_collection, LocSleekLogos.confirm_delete_collection)
+
+    # Download test Get SVG set
+    def test_download_get_svg_set(self):
+        self.logBase.click_xpath(LocSleekLogos.collections)
+        self.logBase.click_xpath(LocSleekLogos.create_collection)
+        self.logBase.click_xpath(LocSleekLogos.collections)
+        self.logBase.click_xpath(LocSleekLogos.rename_collection)
+        self.logBase.input_text_to_xpath(self.logBase.random_text(4), LocSleekLogos.collection_name)
+        self.logBase.click_xpath(LocSleekLogos.confirm_name)
+        self.logBase.click_xpath(LocSleekLogos.icons_resuilt)
+        self.logBase.locate_xpath(LocSleekLogos.first_collection)
+        self.logBase.click_xpath(LocSleekLogos.get_svg_set)
+        self.logBase.wait_presents_file('.svg')
+        self.logBase.del_by_extension('.svg')
+        self.logBase.click_xpath(LocSleekLogos.first_icon_in_collection)
+        self.logBase.click_xpath(LocSleekLogos.delete_collection_icon)
+        self.logBase.click_xpath(LocSleekLogos.confirm_delete_icon)
+        self.logBase.click_xpath(LocSleekLogos.delete_menu_collections)
+        self.logBase.click_all_and_confirm(LocSleekLogos.delete_collection, LocSleekLogos.confirm_delete_collection)
 
 
 

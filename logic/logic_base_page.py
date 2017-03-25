@@ -2,6 +2,7 @@
 import os
 import random
 import json
+import time
 from selenium import webdriver
 from os import listdir
 from sys import platform
@@ -68,12 +69,28 @@ class LogBase(LogClickBase, LogLocateBase):
     # Удаляет все файлы с окончание или расширением (extension)
     def del_by_extension(self, extension):
         list_of_all_files = listdir(download_folder_path)
-        print(str(list_of_all_files) + " << all files")
+        #print(str(list_of_all_files) + " << all files")
         elements_count = 0
         for item in list_of_all_files:
             if item.endswith(extension):
                 elements_count += 1
                 os.remove(os.path.join(download_folder_path, item))
         assert elements_count > 0
+
+    # Ждёт пока не появиться файл
+    def wait_presents_file(self, extension):
+        loop = True
+        loop_timer = 0
+        while loop == True:
+            time.sleep(1)
+            loop_timer += 1
+            for item in listdir(download_folder_path):
+                if item.endswith(extension):
+                    loop = False
+                    break
+                else:
+                    pass
+            assert loop_timer != 15
+
 
 
