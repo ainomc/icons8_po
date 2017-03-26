@@ -11,9 +11,11 @@ Structure:
 - Tests
     - Landing Page tests
     - SleekLogos Page tests - tests for https://sleeklogos.design/
+    - IconPharm Page tests - tests for https://iconpharm.com/
 - Context
     - Base Page Context - context/fixtures fo all pages
     - SleekLogos Page Context
+    - IconPharm Page Context
 - Logic
     - Base Page Logic - tests logic for all pages
     - Base Page Click Logic - click logic for all pages
@@ -22,6 +24,7 @@ Structure:
     - Base Page Locators - locators fo all pages
     - Landing Page Locators - locators fo landing pages
     - SleekLogos Page Locators
+    - IconPharm Page Locators
 
 Empty context/logic/locators file not created.
 
