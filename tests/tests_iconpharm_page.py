@@ -14,7 +14,6 @@ class TestIconPharm(ContextIconPharm):
             self.logBase.click_xpath(LocIconPharm.type % type_num)
             self.logBase.locate_xpath(LocIconPharm.icons_resuilt)
 
-
     # Presents of all categories and category resuilt
     def test_category(self):
         for category_num in range(1, 28):
@@ -134,7 +133,7 @@ class TestIconPharm(ContextIconPharm):
     # Icon editor
     def test_icon_editor(self):
         self.logBase.click_xpath(LocIconPharm.open_icon_editor)
-        for ui_num in range(1, 9):
+        for ui_num in range(1, 8):
             self.logBase.click_xpath(LocIconPharm.editor_ui % ui_num)
         self.logBase.locate_xpath(LocIconPharm.icon_window)
         self.logBase.locate_xpath(LocIconPharm.size_show_icon)
