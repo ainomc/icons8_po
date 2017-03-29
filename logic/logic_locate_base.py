@@ -1,6 +1,5 @@
 # -*- coding: utf-8 -*-
 
-
 class LogLocateBase(object):
 
     def __init__(self, driver):

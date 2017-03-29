@@ -7,15 +7,6 @@ from locators.locators_iconpharm_page import LocIconPharm
 from selenium.webdriver.firefox.firefox_profile import FirefoxProfile
 from sys import platform
 
-if "win" in platform:
-    path_to_download_folder = os.path.join(' ', 'download')
-    path_to_test_folder = os.getcwd()
-    download_folder_path = path_to_test_folder + path_to_download_folder[1:]
-elif "linux" in platform:
-    download_folder_path = "$WORKSPACE/var/lib/jenkins/workspace/Icons8Selenium/download"
-    print (download_folder_path + " << download_folder_path")
-
-
 my_data = json.loads(open("param.json").read())
 home_page = my_data['server_iconpharm']
 login = my_data['login']
@@ -24,11 +15,19 @@ TIME_FOR_WAIT = int(my_data['time_for_wait'])
 
 class ContextIconPharm:
 
+    if "win" in platform:
+        path_to_download_folder = os.path.join(' ', 'download')
+        path_to_test_folder = os.getcwd()
+        download_folder_path = path_to_test_folder + path_to_download_folder[1:]
+    elif "linux" in platform:
+        download_folder_path = "$WORKSPACE/var/lib/jenkins/workspace/Icons8Selenium/download"
+        #print (download_folder_path + " << download_folder_path")
+
     def setup_class(cls):
         cls.profile = FirefoxProfile()
         cls.profile.set_preference("browser.download.folderList", 2)
         cls.profile.set_preference("browser.download.manager.showWhenStarting", False)
-        cls.profile.set_preference("browser.download.dir", download_folder_path)
+        cls.profile.set_preference("browser.download.dir", ContextIconPharm.download_folder_path)
         cls.profile.set_preference("browser.helperApps.neverAsk.saveToDisk",
                                    '''application/x-msdos-program, application/octet-stream,
                                    image/png, image/svg+xml, application/postscript,

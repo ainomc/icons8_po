@@ -2,8 +2,6 @@
 import random
 from locators_base_page import LocatorsBase
 
-
-
 class LocSleekLogos(LocatorsBase):
 
     icons_resuilt = './/*[@class="b-subcategory-wrapper"][1]/descendant::span[1]'
