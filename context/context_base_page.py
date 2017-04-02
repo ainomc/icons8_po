@@ -35,7 +35,7 @@ class ContextBase:
                                    text/plain, application/download, application/zip''')
         cls.driver = webdriver.Firefox(firefox_profile=cls.profile)
         cls.driver.implicitly_wait(ContextBase.wait_time)
-        cls.driver.get('https://%s.icons8.com' % ContextBase.url)
+        cls.driver.get(ContextBase.url)
         cls.driver.maximize_window()
         cls.logBase = LogBase(cls.driver)
 
@@ -43,7 +43,7 @@ class ContextBase:
         cls.driver.close()
 
     def setup(self):
-        self.logBase.open_home_page('https://%s.icons8.com' % ContextBase.url)
+        self.logBase.open_home_page(ContextBase.url)
 
     def teardown(self):
         pass
