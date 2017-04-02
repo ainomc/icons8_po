@@ -14,16 +14,9 @@ my_data = json.loads(open("param.json").read())
 url = my_data['server']
 TIME_FOR_WAIT = int(my_data['time_for_wait'])
 
-
-if "win" in platform:
-    path_to_download_folder = os.path.join(' ', 'download')
-    path_to_test_folder = os.getcwd()
-    download_folder_path = path_to_test_folder + path_to_download_folder[1:]
-elif "linux" in platform:
-    path_to_download_folder = os.path.join(' ', 'download')
-    path_to_test_folder = os.getcwd()
-    download_folder_path = path_to_test_folder + path_to_download_folder[1:]
-    #download_folder_path = "$WORKSPACE/var/lib/jenkins/workspace/icons8selenium_po_tests/download"
+path_to_download_folder = os.path.join(' ', 'download')
+path_to_test_folder = os.getcwd()
+download_folder_path = path_to_test_folder + path_to_download_folder[1:]
 
 class LogBase(LogClickBase, LogLocateBase):
 
