@@ -1,14 +1,28 @@
 # -*- coding: utf-8 -*-
 import json
+import os
+from sys import platform
 from selenium import webdriver
 from logic.logic_base_page import LogBase
 from selenium.webdriver.firefox.firefox_profile import FirefoxProfile
 
-my_data = json.loads(open("param.json").read())
-url = my_data['server']
-TIME_FOR_WAIT = int(my_data['time_for_wait'])
-
 class ContextBase:
+
+    if "win" in platform:
+        path_to_download_folder = os.path.join(' ', 'download')
+        path_to_test_folder = os.getcwd()
+        download_folder_path = path_to_test_folder + path_to_download_folder[1:]
+    elif "linux" in platform:
+        download_folder_path = "$WORKSPACE/var/lib/jenkins/workspace/icons8selenium_po_tests/download"
+        #print (download_folder_path + " << download_folder_path")
+
+    my_data = json.loads(open("param.json").read())
+    url = my_data['server']
+    wait_time = int(my_data['time_for_wait'])
+    home_page_iconpharm = my_data['server_iconpharm']
+    home_page_sleeklogos = my_data['server_sleeklogos']
+    login = my_data['login']
+    password = my_data['password']
 
     def setup_class(cls):
         cls.profile = FirefoxProfile()
@@ -20,8 +34,8 @@ class ContextBase:
                                    image/png, image/svg+xml, application/postscript,
                                    text/plain, application/download, application/zip''')
         cls.driver = webdriver.Firefox(firefox_profile=cls.profile)
-        cls.driver.implicitly_wait(TIME_FOR_WAIT)
-        cls.driver.get(url)
+        cls.driver.implicitly_wait(ContextBase.wait_time)
+        cls.driver.get('https://%s.icons8.com' % ContextBase.url)
         cls.driver.maximize_window()
         cls.logBase = LogBase(cls.driver)
 
@@ -29,7 +43,7 @@ class ContextBase:
         cls.driver.close()
 
     def setup(self):
-        self.logBase.open_home_page(url)
+        self.logBase.open_home_page('https://%s.icons8.com' % ContextBase.url)
 
     def teardown(self):
         pass

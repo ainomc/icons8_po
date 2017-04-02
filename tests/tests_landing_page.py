@@ -23,7 +23,6 @@ class TestLandingPage(ContextBase):
         self.logBase.locate_text_part('Download multiple sizes')
         self.logBase.locate_text_part('Browse by tags')
 
-
     # landing page tag
     def test_landingPageTag(self):
         self.logBase.input_text_to_xpath(LogBase.positive_text, LocLandind.search_field)
