@@ -13,7 +13,10 @@ class ContextBase:
         path_to_test_folder = os.getcwd()
         download_folder_path = path_to_test_folder + path_to_download_folder[1:]
     elif "linux" in platform:
-        download_folder_path = "$WORKSPACE/var/lib/jenkins/workspace/icons8selenium_po_tests/download"
+        path_to_download_folder = os.path.join(' ', 'download')
+        path_to_test_folder = os.getcwd()
+        download_folder_path = path_to_test_folder + path_to_download_folder[1:]
+        #download_folder_path = "$WORKSPACE/var/lib/jenkins/workspace/icons8selenium_po_tests/download"
         #print (download_folder_path + " << download_folder_path")
 
     my_data = json.loads(open("param.json").read())

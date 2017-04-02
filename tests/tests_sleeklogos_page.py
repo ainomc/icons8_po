@@ -11,7 +11,7 @@ class TestSleekLogos(ContextSleekLogos):
             self.logBase.click_text(platform)
             self.logBase.locate_xpath(LocSleekLogos.platform_search_name % platform)
             self.logBase.locate_xpath(LocSleekLogos.icons_resuilt)
-
+    """
     # Presents of all categories and category resuilt
     def test_category(self):
         for category_num in range(1, 28):
@@ -146,7 +146,7 @@ class TestSleekLogos(ContextSleekLogos):
         self.logBase.locate_xpath(LocSleekLogos.color)
         self.logBase.click_xpath(LocSleekLogos.color_palette)
         self.logBase.locate_xpath(LocSleekLogos.canvas)
-
+    """
     # color overlay editor pop-up in icon editor
     def test_icon_editor_overlay_color_popup(self):
         self.logBase.click_xpath(LocSleekLogos.open_icon_editor)
