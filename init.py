@@ -13,7 +13,6 @@ parser.add_argument('-password', '--password', nargs='+', type=str)
 parser.add_argument('-server', '--server', nargs='+', type=str)
 args = parser.parse_args()
 
-
 with open('param.json', 'r+') as outfile:
     json_data = json.load(outfile)
     json_data['login'] = args.login[0]
@@ -30,7 +29,7 @@ for file_num in range(len(list_test_fies)):
 str_list = " ".join(str(x) for x in list_test_fies) # convert list to string
 #str_list = os.path.join(os.getcwd(), 'tests', 'tests_sleeklogos_page.py')
 #str_list = os.path.join(os.getcwd(), 'tests', 'tests_iconpharm_page.py')
-#str_list = os.path.join(os.getcwd(), 'tests', 'tests_landing_page.py')
+str_list = os.path.join(os.getcwd(), 'tests', 'tests_landing_page.py')
 if "win" in platform:
     os.system(r'python -m pytest -v %s -s --showlocals' % str_list)
 elif "linux" in platform:

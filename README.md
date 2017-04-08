@@ -1,5 +1,5 @@
 # icon8 selenium/pytest tests
-Runner: python init.py -login ainomc+1@gmail.com -password 123 -server https://demo.icons8.com/
+Runner: python init.py -login po_tests@gmail.com -password 123 -server https://demo.icons8.com/
 
 Tests list:
 

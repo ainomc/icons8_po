@@ -5,7 +5,6 @@ import json
 import time
 from selenium import webdriver
 from os import listdir
-from sys import platform
 
 from logic_click_base import LogClickBase
 from logic_locate_base import LogLocateBase
@@ -21,7 +20,6 @@ download_folder_path = path_to_test_folder + path_to_download_folder[1:]
 class LogBase(LogClickBase, LogLocateBase):
 
     positive_text = random.choice(['google', 'facebook', 'space', 'ball', 'car', 'word'])
-
 
     # Найти поле по xpath и ввести в него текст
     def input_text_to_xpath(self, text, xpath):

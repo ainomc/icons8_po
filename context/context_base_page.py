@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 import json
 import os
-from sys import platform
 from selenium import webdriver
+
 from logic.logic_base_page import LogBase
 from selenium.webdriver.firefox.firefox_profile import FirefoxProfile
 
