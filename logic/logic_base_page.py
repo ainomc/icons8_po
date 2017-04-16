@@ -27,7 +27,7 @@ class LogBase(LogClickBase, LogLocateBase):
         self.driver.find_element_by_xpath(xpath).clear()
         self.driver.find_element_by_xpath(xpath).send_keys(text)
 
-    # Then scroll to end of the page
+    # Get page
     def open_home_page(self, url):
         self.driver.get(url)
 

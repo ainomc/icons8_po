@@ -1,5 +1,10 @@
 # -*- coding: utf-8 -*-
 
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+from selenium.common.exceptions import TimeoutException
+
 class LogLocateBase(object):
 
     def __init__(self, driver):
@@ -8,6 +13,15 @@ class LogLocateBase(object):
     # Найти xpath
     def locate_xpath(self, xpath):
         self.driver.find_element_by_xpath(xpath)
+
+    # Найти xpath
+    def absent_xpath(self, xpath):
+        try:
+            WebDriverWait(self.driver, 4).until\
+                (EC.visibility_of_element_located((By.XPATH, xpath)))
+            assert False, 'Xpath present!!!'
+        except TimeoutException:
+            pass
 
     # Найти xpath и проверить видимость элемента. Возвращает True or False
     def displayed_xpath(self, xpath):

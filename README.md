@@ -1,15 +1,11 @@
 # icon8 selenium/pytest tests
 Runner: python init.py -login po_tests@gmail.com -password 123 -server https://demo.icons8.com/
 
-Tests list:
-
-- Landing Page - https://demo.icons8.com/web-app/24581/new-window#filled
-
 
 Structure:
 
 - Tests
-    - Landing Page tests
+    - Landing Page tests - tests for https://demo.icons8.com/web-app/24581/new-window#filled
     - SleekLogos Page tests - tests for https://sleeklogos.design/
     - IconPharm Page tests - tests for https://iconpharm.com/
 - Context

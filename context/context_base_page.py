@@ -17,6 +17,7 @@ class ContextBase:
     wait_time = int(my_data['time_for_wait'])
     home_page_iconpharm = my_data['server_iconpharm']
     home_page_sleeklogos = my_data['server_sleeklogos']
+    home_page_icons_mobile = my_data['server_icons_mobile']
     login = my_data['login']
     password = my_data['password']
 
@@ -36,7 +37,7 @@ class ContextBase:
         cls.logBase = LogBase(cls.driver)
 
     def teardown_class(cls):
-        cls.driver.close()
+        cls.driver.quit()
 
     def setup(self):
         self.logBase.open_home_page(ContextBase.url)

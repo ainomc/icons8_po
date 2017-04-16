@@ -28,7 +28,7 @@ class ContextIconPharm(ContextBase):
         cls.logBase.click_value('Login')
 
     def teardown_class(cls):
-        cls.driver.close()
+        cls.driver.quit()
 
     def setup(self):
         self.logBase.open_home_page(ContextIconPharm.home_page_iconpharm)

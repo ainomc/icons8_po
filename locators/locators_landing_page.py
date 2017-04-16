@@ -6,7 +6,6 @@ class LocLandind(LocatorsBase):
     field = '//*[@placeholder="%s"]'
     search_field = field % 'search'
     search_button = '//*[@class="b-search-btn"]'
-    first_result_icon = '//div[@class="b-subcategory-wrapper"][1]/descendant::a[1]'
     icon_name = '//*[@class="c-pretty-link m-inline"]'
     icon_category = '//*[@class="c-breadcrumbs"]/*[3]'
     icon_text = './/*[@ng-bind-html="vm.mainSubtitleText"]'
