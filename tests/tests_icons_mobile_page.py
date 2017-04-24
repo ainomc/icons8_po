@@ -7,9 +7,9 @@ from locators.locators_icons_mobile_page import LocIconsMobile
 class TestIconsMobile(ContextIconsMobile):
 
     # Check desktop version button
-    def test_desktop_ver_button(self):
-        self.logBase.click_xpath(LocIconsMobile.desktop_ver_button)
-        self.logBase.locate_text_part('Yesterday')
+    def test_desktop_version_button(self):
+        self.logBase.click_xpath(LocIconsMobile.desktop_version_button)
+        self.logBase.locate_xpath(LocIconsMobile.desktop_version_locator)
 
     def test_main_menu_items(self):
         self.logBase.click_xpath(LocIconsMobile.open_main_menu)
@@ -24,7 +24,7 @@ class TestIconsMobile(ContextIconsMobile):
     def test_menu_icons_button(self):
         self.logBase.click_xpath(LocIconsMobile.open_main_menu)
         self.logBase.click_text("Icons")
-        self.logBase.locate_text_part('Yesterday')
+        self.logBase.locate_xpath(LocIconsMobile.desktop_version_locator)
 
     def test_menu_request_button(self):
         self.logBase.click_xpath(LocIconsMobile.open_main_menu)

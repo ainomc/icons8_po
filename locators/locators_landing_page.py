@@ -13,7 +13,7 @@ class LocLandind(LocatorsBase):
     download_button = '//button[contains(text(), "Download")]'
     choose_PNG_size = '//*[@class="icon-format-item icon-format-dropdown off-click-dropdownsize m-center"]'
     icon_download_sizes = '//ul[@class="c-list m-nooverflow"]/*[%s]' % random.randint(1, 4)
-    icon_download_format = '//*[@class="c-list m-nooverflow b-format"]/*[%s]' % random.randint(1, 6)
+    icon_download_format = '//*[@class="c-list m-nooverflow b-format"]/*[%s]' % random.randint(1, 4)
 
     tag ='//*[@class="b-tags-list"]/a[1]'
     icon_in_tag = '//span[@class="icons-set_element"][1]'
