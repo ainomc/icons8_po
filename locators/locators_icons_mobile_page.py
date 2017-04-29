@@ -1,8 +1,11 @@
+# -*- coding: utf-8 -*-
 
-import random
 from locators_base_page import LocatorsBase
 
+
 class LocIconsMobile(LocatorsBase):
+    """Locotors for SleekLogos tests"""
+
 
     desktop_version_button = './/span[text()="Desktop version"]'
 

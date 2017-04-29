@@ -1,8 +1,12 @@
+# -*- coding: utf-8 -*-
 
 import random
 from locators_base_page import LocatorsBase
 
+
 class LocSleekLogos(LocatorsBase):
+    """Locators for SleekLogos"""
+
 
     icons_resuilt = './/*[@class="b-subcategory-wrapper"][1]/descendant::span[1]'
     category_list = './/*[@class="b-bar-menus-menu m-scrollable"]/descendant::a[%s]'

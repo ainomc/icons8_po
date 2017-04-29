@@ -1,17 +1,16 @@
 # -*- coding: utf-8 -*-
-from context.context_base_page import ContextBase
-from logic.logic_base_page import LogBase
+
+from context.context_landing_page import ContextLandingPage
 from locators.locators_landing_page import LocLandind
 
-class TestLandingPage(ContextBase):
 
+class TestLandingPage(ContextLandingPage):
+    """ Tests of landing page (page of icon, what appear after
+        when user clicked of the name of icon).
+        """
 
-    # landing page icon
     def test_landingPageIcon(self):
-        self.logBase.input_text_to_xpath(LogBase.positive_text, LocLandind.search_field)
-        self.logBase.click_xpath(LocLandind.search_button)
-        self.logBase.click_xpath(LocLandind.first_result_icon)
-        self.logBase.click_xpath(LocLandind.icon_name)
+        """Tests locate of main element of icon page"""
         self.logBase.locate_xpath(LocLandind.icon_category)
         self.logBase.locate_xpath(LocLandind.icon_text)
         self.logBase.locate_xpath(LocLandind.icon)
@@ -23,24 +22,19 @@ class TestLandingPage(ContextBase):
         self.logBase.locate_text_part('Download multiple sizes')
         self.logBase.locate_text_part('Browse by tags')
 
-    # landing page tag
     def test_landingPageTag(self):
-        self.logBase.input_text_to_xpath(LogBase.positive_text, LocLandind.search_field)
-        self.logBase.click_xpath(LocLandind.search_button)
-        self.logBase.click_xpath(LocLandind.first_result_icon)
-        self.logBase.click_xpath(LocLandind.icon_name)
+        """Tests tags in icon page"""
         self.logBase.locate_text_part('Browse by tags')
         self.logBase.click_xpath(LocLandind.tag)
         self.logBase.locate_text_part('This page contains')
         self.logBase.click_xpath(LocLandind.icon_in_tag)
         self.logBase.locate_text_part('Browse by tags')
 
-    # landing page category
     def test_landingPageCategory(self):
-        self.logBase.input_text_to_xpath(LogBase.positive_text, LocLandind.search_field)
-        self.logBase.click_xpath(LocLandind.search_button)
-        self.logBase.click_xpath(LocLandind.first_result_icon)
-        self.logBase.click_xpath(LocLandind.icon_name)
+        """Tests category button in icon page
+        For example: 'Free Icons › Web Icons › Arrows'
+        If user click 'Arrows' must opened page with arrows categoryicons
+        """
         self.logBase.locate_text_part('Browse by tags')
         self.logBase.click_xpath(LocLandind.icon_category)
         self.logBase.locate_xpath(LocLandind.icons_result)

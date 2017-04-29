@@ -1,10 +1,11 @@
 # -*- coding: utf-8 -*-
-import random
-#from locators_base_page import LocatorsBase
+
 from locators_sleeklogos_page import LocSleekLogos
 
 
 class LocIconPharm(LocSleekLogos):
+    """Locators for IconPharm"""
+
 
     type = './/*[@class="b-bar-menus m-fix-c-list"]/*[1]/*[%s]'
     overlay_color_edit = \

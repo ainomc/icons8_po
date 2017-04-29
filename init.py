@@ -1,18 +1,25 @@
 # -*- coding: utf-8 -*-
+"""Initialization module.
+    Parsed arguments from command line, like : '-login po_tests@gmail.com
+    -password 123 -server https://demo.icons8.com/'
+    Write this data to the param.json
+    And run tests
+    """
+
 import json
 import os
 import glob
 import argparse
 from sys import platform
 
-#runner demo - python init.py -login ainomc@gmail.com -password 123 -server https://demo.icons8.com/
-
+# Parse arguments
 parser = argparse.ArgumentParser()
 parser.add_argument('-login', '--login', nargs='+', type=str)
 parser.add_argument('-password', '--password', nargs='+', type=str)
 parser.add_argument('-server', '--server', nargs='+', type=str)
 args = parser.parse_args()
 
+# Write arguments to the param.json
 with open('param.json', 'r+') as outfile:
     json_data = json.load(outfile)
     json_data['login'] = args.login[0]
@@ -22,13 +29,20 @@ with open('param.json', 'r+') as outfile:
     outfile.write(json.dumps(json_data))
     outfile.truncate()
 
-list_test_fies = glob.glob(os.path.join(os.getcwd(), 'tests', 'tests_*')) # find all tests files
+# Find all path to tests_* files and create list
+list_test_fies = glob.glob(os.path.join(os.getcwd(), 'tests', 'tests_*'))
+
+# Convert path to universal path what can be used in linux
 for file_num in range(len(list_test_fies)):
     list_test_fies[file_num] = os.path.join(os.getcwd(), 'tests', list_test_fies[file_num])
 
-str_list = " ".join(str(x) for x in list_test_fies) # convert list to string
-#str_list = os.path.join(os.getcwd(), 'tests', 'tests_icons_mobile_page.py')
+# Convert list to one string with spaces (' ') between each path
+str_list = " ".join(str(x) for x in list_test_fies)
 
+# If you need start only one test file change str_list on like this:
+#str_list = os.path.join(os.getcwd(), 'tests', 'tests_iconpharm_page.py')
+
+# Run tests with all tests files
 if "win" in platform:
     os.system(r'python -m pytest -v %s -s --showlocals' % str_list)
 elif "linux" in platform:

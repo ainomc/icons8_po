@@ -1,7 +1,12 @@
+# -*- coding: utf-8 -*-
+
 import json
 import random
 
 class LocatorsBase(object):
+    """Base locators"""
+
+
     my_data = json.loads(open("param.json").read())
     login = my_data['login']
     password = my_data['password']

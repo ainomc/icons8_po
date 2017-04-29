@@ -1,14 +1,18 @@
 # -*- coding: utf-8 -*-
-import json
+
 from selenium import webdriver
 from logic.logic_base_page import LogBase
-from locators.locators_icons_mobile_page import LocIconsMobile
 from selenium.webdriver.firefox.firefox_profile import FirefoxProfile
 from context_base_page import ContextBase
 
+
 class ContextIconsMobile(ContextBase):
+    """Context/Fixtures of mobile version web-app tests"""
+
 
     def setup_class(cls):
+        """Actions before test class"""
+        # Driver profile
         cls.profile = FirefoxProfile()
         cls.profile.set_preference("browser.download.folderList", 2)
         cls.profile.set_preference("browser.download.manager.showWhenStarting", False)
@@ -20,15 +24,22 @@ class ContextIconsMobile(ContextBase):
                                    application/download, application/zip''')
         cls.driver = webdriver.Firefox(firefox_profile=cls.profile)
         cls.driver.implicitly_wait(ContextIconsMobile.wait_time)
+
+        # Open home page
         cls.driver.get(ContextBase.home_page_icons_mobile)
         cls.driver.set_window_size(750, 1334)
         cls.logBase = LogBase(cls.driver)
 
     def teardown_class(cls):
+        """Actions after test class"""
+        # Close/quit driver
         cls.driver.quit()
 
     def setup(self):
+        """Actions before each test"""
+        # Open home page
         self.logBase.open_home_page(ContextBase.home_page_icons_mobile)
 
     def teardown(self):
+        """Actions after each test"""
         pass

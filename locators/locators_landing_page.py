@@ -1,8 +1,13 @@
+# -*- coding: utf-8 -*-
 
 import random
 from locators_base_page import LocatorsBase
 
+
 class LocLandind(LocatorsBase):
+    """Locators for Landing page"""
+
+
     field = '//*[@placeholder="%s"]'
     search_field = field % 'search'
     search_button = '//*[@class="b-search-btn"]'

@@ -1,17 +1,22 @@
 # -*- coding: utf-8 -*-
+
 import json
 import os
 from selenium import webdriver
-
 from logic.logic_base_page import LogBase
 from selenium.webdriver.firefox.firefox_profile import FirefoxProfile
 
-class ContextBase:
 
+class ContextBase:
+    """Base Context/Fixtures"""
+
+
+    # Path to download folder
     path_to_download_folder = os.path.join(' ', 'download')
     path_to_test_folder = os.getcwd()
     download_folder_path = path_to_test_folder + path_to_download_folder[1:]
 
+    # Read param.json with tests parameters
     my_data = json.loads(open("param.json").read())
     url = my_data['server']
     wait_time = int(my_data['time_for_wait'])
@@ -22,6 +27,8 @@ class ContextBase:
     password = my_data['password']
 
     def setup_class(cls):
+        """Actions before tests"""
+        # Driver profile
         cls.profile = FirefoxProfile()
         cls.profile.set_preference("browser.download.folderList", 2)
         cls.profile.set_preference("browser.download.manager.showWhenStarting", False)
@@ -32,15 +39,22 @@ class ContextBase:
                                    text/plain, application/download, application/zip''')
         cls.driver = webdriver.Firefox(firefox_profile=cls.profile)
         cls.driver.implicitly_wait(ContextBase.wait_time)
+
+        # Open icon8 home page url
         cls.driver.get(ContextBase.url)
         cls.driver.maximize_window()
         cls.logBase = LogBase(cls.driver)
 
     def teardown_class(cls):
+        """Actions after test class"""
+        # Close/quit driver
         cls.driver.quit()
 
     def setup(self):
+        """Actions before each test"""
+        # Open home page
         self.logBase.open_home_page(ContextBase.url)
 
     def teardown(self):
+        """Actions after each tests"""
         pass
