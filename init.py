@@ -34,16 +34,19 @@ list_test_fies = glob.glob(os.path.join(os.getcwd(), 'tests', 'tests_*'))
 
 # Convert path to universal path what can be used in linux
 for file_num in range(len(list_test_fies)):
-    list_test_fies[file_num] = os.path.join(os.getcwd(), 'tests', list_test_fies[file_num])
+    list_test_fies[file_num] = \
+        os.path.join(os.getcwd(), 'tests', list_test_fies[file_num])
 
 # Convert list to one string with spaces (' ') between each path
 str_list = " ".join(str(x) for x in list_test_fies)
 
 # If you need start only one test file change str_list on like this:
-#str_list = os.path.join(os.getcwd(), 'tests', 'tests_iconpharm_page.py')
+# str_list = os.path.join(os.getcwd(), 'tests', 'tests_icons_mobile_page.py')
 
 # Run tests with all tests files
 if "win" in platform:
-    os.system(r'python -m pytest -v %s -s --showlocals' % str_list)
+    os.system(r'python -m pytest -v %s -s -l' % str_list)
 elif "linux" in platform:
-    os.system(r'python -m pytest -v %s -s --showlocals --junitxml=/var/lib/jenkins/workspace/icons8selenium_po_tests/xml/junitxml' % str_list)
+    os.system(r'python -m pytest -v %s -s -l '
+              r'--junitxml=/var/lib/jenkins/workspace'
+              r'/icons8selenium_po_tests/xml/junitxml' % str_list)

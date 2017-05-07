@@ -10,7 +10,6 @@ from selenium.webdriver.firefox.firefox_profile import FirefoxProfile
 class ContextBase:
     """Base Context/Fixtures"""
 
-
     # Path to download folder
     path_to_download_folder = os.path.join(' ', 'download')
     path_to_test_folder = os.getcwd()
@@ -30,13 +29,17 @@ class ContextBase:
         """Actions before tests"""
         # Driver profile
         cls.profile = FirefoxProfile()
-        cls.profile.set_preference("browser.download.folderList", 2)
-        cls.profile.set_preference("browser.download.manager.showWhenStarting", False)
-        cls.profile.set_preference("browser.download.dir", ContextBase.download_folder_path)
-        cls.profile.set_preference("browser.helperApps.neverAsk.saveToDisk",
-                                   '''application/x-msdos-program, application/octet-stream,
-                                   image/png, image/svg+xml, application/postscript,
-                                   text/plain, application/download, application/zip''')
+        cls.profile.set_preference(
+            "browser.download.folderList", 2)
+        cls.profile.set_preference(
+            "browser.download.manager.showWhenStarting", False)
+        cls.profile.set_preference(
+            "browser.download.dir", ContextBase.download_folder_path)
+        cls.profile.set_preference(
+            "browser.helperApps.neverAsk.saveToDisk",
+            '''application/x-msdos-program, application/octet-stream,
+            image/png, image/svg+xml, application/postscript,
+            text/plain, application/download, application/zip''')
         cls.driver = webdriver.Firefox(firefox_profile=cls.profile)
         cls.driver.implicitly_wait(ContextBase.wait_time)
 

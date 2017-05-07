@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 
 import time
+import random
 from context.context_icons_mobile_page import ContextIconsMobile
 from locators.locators_icons_mobile_page import LocIconsMobile
 
@@ -75,67 +76,39 @@ class TestIconsMobile(ContextIconsMobile):
         """Tests of main menu icon button"""
         for platform in LocIconsMobile.platform_list:
             self.logBase.locate_text(platform)
-    """
-    # Check desktop version button
-    def test_desktop_version_button(self):
-        self.logBase.click_xpath(LocIconsMobile.desktop_version_button)
-        self.logBase.locate_xpath(LocIconsMobile.desktop_version_locator)
 
     def test_change_lang_popup(self):
+        """Tests of change language pop-up"""
         self.logBase.click_xpath(LocIconsMobile.open_main_menu)
         self.logBase.click_xpath(LocIconsMobile.change_lang)
         self.logBase.locate_text("    French ")
 
-    def test_latest_icons(self):
-        self.logBase.locate_text_part("Latest Icons")
-        self.logBase.click_xpath(LocIconsMobile.first_icon)
-
-    def test_search_hide(self):
-        self.logBase.locate_xpath(LocIconsMobile.search_field)
-        self.logBase.click_xpath(LocIconsMobile.search_hide)
-        self.logBase.absent_xpath(LocIconsMobile.search_field)
-        self.logBase.click_xpath(LocIconsMobile.search_hide)
-        self.logBase.locate_xpath(LocIconsMobile.search_field)
-
     def test_search(self):
+        """Tests of search"""
         self.logBase.input_text_to_xpath(random.choice(LocIconsMobile.search_text_list),
                                          LocIconsMobile.search_field)
         self.logBase.click_xpath(LocIconsMobile.search_button)
-        self.logBase.locate_xpath(LocIconsMobile.first_search_resuilt)
-    """
+        self.logBase.locate_xpath(LocIconsMobile.first_result_icon)
 
+    def test_icon_page(self):
+        """Tests of icon page"""
+        self.logBase.click_xpath(LocIconsMobile.first_result_icon)
+        self.logBase.click_xpath(LocIconsMobile.icon_name)
+        self.logBase.locate_xpath(LocIconsMobile.icon_name_in_icon_page)
+        self.logBase.locate_xpath(LocIconsMobile.icon_subtitle)
+        self.logBase.locate_xpath(LocIconsMobile.icon_page_download_bu)
+        self.logBase.locate_xpath(LocIconsMobile.icon_in_icon_page)
+        self.logBase.locate_xpath(LocIconsMobile.icon_page_generate_html)
+        self.logBase.locate_xpath(LocIconsMobile.icon_page_tab_list)
+        self.logBase.locate_xpath(LocIconsMobile.icon_page_tags_list)
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    def test_right_menu_bar(self):
+        """Tests of right menu bar"""
+        self.logBase.click_xpath(LocIconsMobile.first_result_icon)
+        self.logBase.locate_text('Download')
+        self.logBase.locate_text('Generate HTML')
+        self.logBase.click_xpath(LocIconsMobile.collections)
+        self.logBase.click_xpath(LocIconsMobile.first_result_icon)
+        self.logBase.locate_text('Download')
+        self.logBase.locate_text('Get Font')
+        self.logBase.locate_text('Get SVG Set')

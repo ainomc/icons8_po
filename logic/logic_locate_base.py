@@ -5,6 +5,7 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.common.exceptions import TimeoutException
 
+
 class LogLocateBase(object):
     """Base logic"""
 
@@ -18,8 +19,8 @@ class LogLocateBase(object):
     def absent_xpath(self, xpath):
         """Check absent of xpath"""
         try:
-            WebDriverWait(self.driver, 4).until\
-                (EC.visibility_of_element_located((By.XPATH, xpath)))
+            WebDriverWait(self.driver, 4)\
+                .until(EC.visibility_of_element_located((By.XPATH, xpath)))
             assert False, 'Xpath present!!!'
         except TimeoutException:
             pass

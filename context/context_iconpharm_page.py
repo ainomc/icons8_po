@@ -10,18 +10,21 @@ from context_base_page import ContextBase
 class ContextIconPharm(ContextBase):
     """Context/Fixtures of IconPharm tests"""
 
-
     def setup_class(cls):
         """Actions before class tests"""
         # Profile settings
         cls.profile = FirefoxProfile()
-        cls.profile.set_preference("browser.download.folderList", 2)
-        cls.profile.set_preference("browser.download.manager.showWhenStarting", False)
-        cls.profile.set_preference("browser.download.dir", ContextIconPharm.download_folder_path)
-        cls.profile.set_preference("browser.helperApps.neverAsk.saveToDisk",
-                                   '''application/x-msdos-program, application/octet-stream,
-                                   image/png, image/svg+xml, application/postscript,
-                                   text/plain, application/download, application/zip''')
+        cls.profile.set_preference(
+            "browser.download.folderList", 2)
+        cls.profile.set_preference(
+            "browser.download.manager.showWhenStarting", False)
+        cls.profile.set_preference(
+            "browser.download.dir", ContextIconPharm.download_folder_path)
+        cls.profile.set_preference(
+            "browser.helperApps.neverAsk.saveToDisk",
+            '''application/x-msdos-program, application/octet-stream,
+            image/png, image/svg+xml, application/postscript,
+            text/plain, application/download, application/zip''')
         cls.driver = webdriver.Firefox(firefox_profile=cls.profile)
         cls.driver.implicitly_wait(ContextIconPharm.wait_time)
 
@@ -32,8 +35,10 @@ class ContextIconPharm(ContextBase):
         # Login
         cls.logBase = LogBase(cls.driver)
         cls.logBase.click_text('Login')
-        cls.logBase.input_text_to_xpath(ContextIconPharm.login, LocIconPharm.email_field)
-        cls.logBase.input_text_to_xpath(ContextIconPharm.password, LocIconPharm.password_field)
+        cls.logBase.input_text_to_xpath(ContextIconPharm.login,
+                                        LocIconPharm.email_field)
+        cls.logBase.input_text_to_xpath(ContextIconPharm.password,
+                                        LocIconPharm.password_field)
         cls.logBase.click_value('Login')
 
     def teardown_class(cls):

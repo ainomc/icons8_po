@@ -9,19 +9,21 @@ from context_base_page import ContextBase
 class ContextIconsMobile(ContextBase):
     """Context/Fixtures of mobile version web-app tests"""
 
-
     def setup_class(cls):
         """Actions before test class"""
         # Driver profile
         cls.profile = FirefoxProfile()
-        cls.profile.set_preference("browser.download.folderList", 2)
-        cls.profile.set_preference("browser.download.manager.showWhenStarting", False)
-        cls.profile.set_preference("browser.download.dir", ContextIconsMobile.download_folder_path)
-        cls.profile.set_preference("browser.helperApps.neverAsk.saveToDisk",
-                                   '''application/x-msdos-program, application/octet-stream,
-                                   image/png, image/svg+xml, application/postscript, application/eps,
-                                   application/x-eps, image/eps, image/x-eps, text/plain,
-                                   application/download, application/zip''')
+        cls.profile.set_preference(
+            "browser.download.folderList", 2)
+        cls.profile.set_preference(
+            "browser.download.manager.showWhenStarting", False)
+        cls.profile.set_preference(
+            "browser.download.dir", ContextIconsMobile.download_folder_path)
+        cls.profile.set_preference(
+            "browser.helperApps.neverAsk.saveToDisk",
+            '''application/x-msdos-program, application/octet-stream,
+            image/png, image/svg+xml, application/postscript,
+            text/plain, application/download, application/zip''')
         cls.driver = webdriver.Firefox(firefox_profile=cls.profile)
         cls.driver.implicitly_wait(ContextIconsMobile.wait_time)
 

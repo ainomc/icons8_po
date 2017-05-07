@@ -24,7 +24,6 @@ download_folder_path = path_to_test_folder + path_to_download_folder[1:]
 class LogBase(LogClickBase, LogLocateBase):
     """Base logic of tests"""
 
-
     # Positive text for search
     positive_text = random.choice(['google', 'facebook', 'space', 'ball', 'car', 'word'])
 
@@ -52,7 +51,8 @@ class LogBase(LogClickBase, LogLocateBase):
     def random_text(self, items_number):
         """Generate and return random text with amount of 'items_number' """
         text = ''
-        symbols = 'qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM1234567890'
+        symbols = 'qwertyuiopasdfghjklzxcvbnm' \
+                  'QWERTYUIOPASDFGHJKLZXCVBNM1234567890'
         for x in range(items_number):
             text = text + \
                 random.choice(
@@ -80,7 +80,7 @@ class LogBase(LogClickBase, LogLocateBase):
         """Wait presents of file with 'extension' """
         loop = True
         loop_timer = 0
-        while loop == True:
+        while loop is True:
             time.sleep(1)
             loop_timer += 1
             for item in listdir(download_folder_path):
@@ -90,6 +90,3 @@ class LogBase(LogClickBase, LogLocateBase):
                 else:
                     pass
             assert loop_timer != 15
-
-
-
