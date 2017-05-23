@@ -1,15 +1,14 @@
 # -*- coding: utf-8 -*-
 
 import time
-import random
 from context.context_icons_mobile_page import ContextIconsMobile
 from locators.locators_icons_mobile_page import LocIconsMobile
+
 
 class TestIconsMobile(ContextIconsMobile):
     """Tests of monile version of web-add
     https://demo.icons8.com/icons/
     """
-
 
     def test_main_menu_items(self):
         """Tests of main menu items"""
@@ -40,12 +39,12 @@ class TestIconsMobile(ContextIconsMobile):
         self.logBase.click_text("Buy")
         self.logBase.locate_text("Free")
 
-    def test_menu_iMessage_button(self):
+    def test_menu_imessage_button(self):
         """Tests of main menu icon button"""
         self.logBase.click_xpath(LocIconsMobile.open_main_menu)
         self.logBase.click_xpath(LocIconsMobile.iMessage_stickers)
 
-    def test_menu_AI_button(self):
+    def test_menu_ai_button(self):
         """Tests of main menu icon button"""
         self.logBase.click_xpath(LocIconsMobile.open_main_menu)
         time.sleep(1)
@@ -85,7 +84,7 @@ class TestIconsMobile(ContextIconsMobile):
 
     def test_search(self):
         """Tests of search"""
-        self.logBase.input_text_to_xpath(random.choice(LocIconsMobile.search_text_list),
+        self.logBase.input_text_to_xpath(LocIconsMobile.search_text,
                                          LocIconsMobile.search_field)
         self.logBase.click_xpath(LocIconsMobile.search_button)
         self.logBase.locate_xpath(LocIconsMobile.first_result_icon)
@@ -108,7 +107,6 @@ class TestIconsMobile(ContextIconsMobile):
         self.logBase.locate_text('Download')
         self.logBase.locate_text('Generate HTML')
         self.logBase.click_xpath(LocIconsMobile.collections)
-        self.logBase.click_xpath(LocIconsMobile.first_result_icon)
         self.logBase.locate_text('Download')
         self.logBase.locate_text('Get Font')
         self.logBase.locate_text('Get SVG Set')

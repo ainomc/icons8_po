@@ -14,7 +14,7 @@ class LocIconsMobile(LocatorsBase):
     first_icon = './/*[@class="set-icons cf"]/a[1]'
     change_lang = './/*[@id="Ð¡Ð»Ð¾Ð¹_1"]'
 
-    search_field = './/input[@ng-model="search.term"]'
+    search_field = './/input[@ng-model="vm.search.term"]'
     search_button = './/*[@class="icons-search__btn"]'
 
     desktop_version_locator = './/*[@class="c-grid-btns"][1]'
@@ -28,5 +28,5 @@ class LocIconsMobile(LocatorsBase):
     icon_page_tab_list = './/*[@class="b-categories-tabs' \
                          ' c-tabs m-responsive m-narrow"]'
     icon_page_tags_list = './/*[@class="b-tags-list"]'
-    collections = './/span[@class="b-tab m-active"]'
+    collections = './/span[@class="b-tab"]'
 

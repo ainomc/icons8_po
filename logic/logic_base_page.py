@@ -29,6 +29,7 @@ class LogBase(LogClickBase, LogLocateBase):
 
     def input_text_to_xpath(self, text, xpath):
         """Find field by xpath, clear and input text"""
+        pass
         self.driver.find_element_by_xpath(xpath).click()
         self.driver.find_element_by_xpath(xpath).clear()
         self.driver.find_element_by_xpath(xpath).send_keys(text)

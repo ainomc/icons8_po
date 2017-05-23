@@ -18,5 +18,5 @@ class LocatorsBase(object):
     search_text_list = ['Google', 'Facebook', 'Icon', 'Game', 'Phone']
     search_text = random.choice(search_text_list)
 
-    first_result_icon = '//div[@class="b-subcategory-wrapper"][1]' \
+    first_result_icon = './/div[@class="b-subcategory-wrapper"][1]' \
                         '/descendant::a[1]'
