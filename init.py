@@ -45,10 +45,11 @@ str_list = " ".join(str(x) for x in list_test_fies)
 
 # Run tests with all tests files
 if "win" in platform:
-    #os.system(r'python -m pytest -v tests\tests_landing_page.py -s -l')
-    os.system(r'python -m pytest -v %s -s -l' % str_list)
+    # os.system(r'python -m pytest -v tests\tests_landing_page.py -s -l')
+    os.system(r'python -m pytest -v %s -s -l '
+              r'-html=report/html/report.html' % str_list)
     # tests_icons_mobile_page.py
 elif "linux" in platform:
     os.system(r'python -m pytest -v %s -s -l '
-              r'--junitxml=/var/lib/jenkins/workspace'
-              r'/icons8selenium_po_tests/xml/junitxml' % str_list)
+              r'--junitxml=/var/lib/jenkins/workspace/icons8selenium_po_tests'
+              r'/report/junitxml --html=report/html/report.html' % str_list)
