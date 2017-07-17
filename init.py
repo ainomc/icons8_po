@@ -24,7 +24,7 @@ with open('param.json', 'r+') as outfile:
     json_data = json.load(outfile)
     json_data['login'] = args.login[0]
     json_data['password'] = args.password[0]
-    json_data['server'] = args.server[0]
+    json_data['server'] = args.server[0] + 'icon/'
     outfile.seek(0)
     outfile.write(json.dumps(json_data))
     outfile.truncate()
@@ -45,8 +45,8 @@ str_list = " ".join(str(x) for x in list_test_fies)
 
 # Run tests with all tests files
 if "win" in platform:
-    # os.system(r'python -m pytest -v tests\tests_landing_page.py -s -l')
-    os.system(r'python -m pytest -v %s -s -l --html=html_report/report.html' % str_list)
+    os.system(r'python -m pytest -v tests\tests_landing_page.py -s -l')
+    # os.system(r'python -m pytest -v %s -s -l --html=html_report/report.html' % str_list)
     # tests_icons_mobile_page.py
 elif "linux" in platform:
     os.system(r'python -m pytest -v %s -s -l '
