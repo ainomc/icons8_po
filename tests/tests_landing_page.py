@@ -26,7 +26,7 @@ class TestLandingPage(ContextLandingPage):
         """Tests tags in icon page"""
         self.logBase.locate_text_part('Browse by tags')
         self.logBase.click_xpath(LocLandind.tag)
-        self.logBase.locate_text_part('This page contains')
+        self.logBase.locate_text_part('Here we go with the icons related')
         self.logBase.click_xpath(LocLandind.icon_in_tag)
         self.logBase.locate_text_part('Browse by tags')
 

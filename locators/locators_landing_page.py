@@ -11,7 +11,7 @@ class LocLandind(LocatorsBase):
     search_field = field % 'search'
     search_button = '//*[@class="b-search-btn"]'
     icon_name = '//*[@class="c-pretty-link m-inline"]'
-    icon_category = '//*[@class="c-breadcrumbs"]/*[3]'
+    icon_category = './/*[@class="c-breadcrumbs"]/*[3]/*[1]'
     icon_text = './/*[@ng-bind-html="vm.mainSubtitleText"]'
     icon = '//*[@class="col-md-4 m-full-width b-main-icon m-main-icon"]/*'
     download_button = '//button[contains(text(), "Download")]'
@@ -22,7 +22,7 @@ class LocLandind(LocatorsBase):
     icon_download_format = '//*[@class="c-list m-nooverflow b-format"]/*[%s]' \
                            % random.randint(1, 4)
 
-    tag ='//*[@class="b-tags-list"]/a[1]'
+    tag = '//*[@class="b-tags-list"]/a[1]'
     icon_in_tag = '//span[@class="icons-set_element"][1]'
     icons_result = '//*[@class="icons-set"]/descendant::span[%s]' \
                    % random.randint(1, 5)
