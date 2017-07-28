@@ -50,4 +50,4 @@ if "win" in platform:
     # tests_icons_mobile_page.py
 elif "linux" in platform:
     os.system(r'python -m pytest -v %s -s -l '
-              r'--junitxml=/var/lib/jenkins/workspace/icons8selenium_po_tests/report/junitxml --html=report/html/report.html' % str_list)
+              r'--junitxml=/var/lib/jenkins/workspace/icons8selenium_po_tests/report/junitxml --html=html_report/report.html' % str_list)
