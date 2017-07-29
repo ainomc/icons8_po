@@ -25,8 +25,7 @@ class LocIconsMobile(LocatorsBase):
     icon_in_icon_page = './/*[@ class="m-color-icon"]'
     icon_page_download_bu = './/button[@class="c-button red"]'
     icon_page_generate_html = '''.//*[@classes="'c-button white'"]'''
-    icon_page_tab_list = './/*[@class="b-categories-tabs' \
-                         ' c-tabs m-responsive m-narrow"]'
+
     icon_page_tags_list = './/*[@class="b-tags-list"]'
     collections = './/span[@class="b-tab"]'
 

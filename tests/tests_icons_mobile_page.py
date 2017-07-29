@@ -98,7 +98,6 @@ class TestIconsMobile(ContextIconsMobile):
         self.logBase.locate_xpath(LocIconsMobile.icon_page_download_bu)
         self.logBase.locate_xpath(LocIconsMobile.icon_in_icon_page)
         self.logBase.locate_xpath(LocIconsMobile.icon_page_generate_html)
-        self.logBase.locate_xpath(LocIconsMobile.icon_page_tab_list)
         self.logBase.locate_xpath(LocIconsMobile.icon_page_tags_list)
 
     def test_right_menu_bar(self):
