@@ -20,3 +20,5 @@ class LocatorsBase(object):
 
     first_result_icon = './/div[@class="b-subcategory-wrapper"][1]' \
                         '/descendant::a[1]'
+    another_first_result_icon = './/div[@class="b-subcategory-wrapper"][2]/' \
+                                'descendant::a[1]'

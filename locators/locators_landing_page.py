@@ -29,4 +29,3 @@ class LocLandind(LocatorsBase):
     icon_in_result = '//div[@class="b-subcategory-wrapper"][1]' \
                      '/descendant::a[%s]' % random.randint(1, 5)
     category_title = '//*[@ng-bind-html="vm.category.title"]'
-

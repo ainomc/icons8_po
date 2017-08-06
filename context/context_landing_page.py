@@ -17,6 +17,14 @@ class ContextLandingPage(ContextBase):
         self.logBase.click_xpath(LocLandind.first_result_icon)
         self.logBase.click_xpath(LocLandind.icon_name)
 
+        try:
+            self.logBase.locate_text_part('Browse by tags')
+        except:
+            self.logBase.open_home_page(ContextBase.url)
+            self.logBase.click_xpath(LocLandind.another_first_result_icon)
+            self.logBase.click_xpath(LocLandind.icon_name)
+            self.logBase.locate_text_part('Browse by tags')
+
     def teardown(self):
         """Actions after tests"""
         pass

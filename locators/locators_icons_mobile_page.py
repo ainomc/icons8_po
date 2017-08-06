@@ -28,4 +28,5 @@ class LocIconsMobile(LocatorsBase):
 
     icon_page_tags_list = './/*[@class="b-tags-list"]'
     collections = './/span[@class="b-tab"]'
+    blog_list = '//*[@class="feed js-grid"]'
 

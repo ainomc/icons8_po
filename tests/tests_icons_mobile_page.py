@@ -3,6 +3,7 @@
 import time
 from context.context_icons_mobile_page import ContextIconsMobile
 from locators.locators_icons_mobile_page import LocIconsMobile
+from logic.logic_base_page import LogBase
 
 
 class TestIconsMobile(ContextIconsMobile):
@@ -55,7 +56,7 @@ class TestIconsMobile(ContextIconsMobile):
         """Tests of main menu icon button"""
         self.logBase.click_xpath(LocIconsMobile.open_main_menu)
         self.logBase.click_text("Blog")
-        self.logBase.locate_text("Subscribe")
+        self.logBase.locate_xpath(LocIconsMobile.blog_list)
 
     def test_menu_register_button(self):
         """Tests of main menu icon button"""
@@ -93,6 +94,14 @@ class TestIconsMobile(ContextIconsMobile):
         """Tests of icon page"""
         self.logBase.click_xpath(LocIconsMobile.first_result_icon)
         self.logBase.click_xpath(LocIconsMobile.icon_name)
+
+        try:
+            self.logBase.locate_text_part('Browse by tags')
+        except:
+            self.logBase.open_home_page(ContextIconsMobile.url)
+            self.logBase.click_xpath(LocIconsMobile.another_first_result_icon)
+            self.logBase.click_xpath(LocIconsMobile.icon_name)
+            self.logBase.locate_text_part('Browse by tags')
         self.logBase.locate_xpath(LocIconsMobile.icon_name_in_icon_page)
         self.logBase.locate_xpath(LocIconsMobile.icon_subtitle)
         self.logBase.locate_xpath(LocIconsMobile.icon_page_download_bu)

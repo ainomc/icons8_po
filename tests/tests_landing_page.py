@@ -9,7 +9,7 @@ class TestLandingPage(ContextLandingPage):
         when user clicked of the name of icon).
         """
 
-    def test_landingPageIcon(self):
+    def test_landing_page_icon(self):
         """Tests locate of main element of icon page"""
         self.logBase.locate_xpath(LocLandind.icon_category)
         self.logBase.locate_xpath(LocLandind.icon_text)
@@ -22,7 +22,7 @@ class TestLandingPage(ContextLandingPage):
         self.logBase.locate_text_part('Download multiple sizes')
         self.logBase.locate_text_part('Browse by tags')
 
-    def test_landingPageTag(self):
+    def test_landing_page_tag(self):
         """Tests tags in icon page"""
         self.logBase.locate_text_part('Browse by tags')
         self.logBase.click_xpath(LocLandind.tag)
@@ -30,7 +30,7 @@ class TestLandingPage(ContextLandingPage):
         self.logBase.click_xpath(LocLandind.icon_in_tag)
         self.logBase.locate_text_part('Browse by tags')
 
-    def test_landingPageCategory(self):
+    def test_landing_page_category(self):
         """Tests category button in icon page
         For example: 'Free Icons › Web Icons › Arrows'
         If user click 'Arrows' must opened page with arrows categoryicons
