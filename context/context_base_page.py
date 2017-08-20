@@ -6,9 +6,9 @@ import os
 # import allure
 # from allure import attach, attach_type
 from selenium import webdriver
-from icons8_po.logic.logic_base_page import LogBase
-from icons8_po.logic.logic_click_base import LogClickBase
-from icons8_po.logic.logic_locate_base import LogLocateBase
+from logic.logic_base_page import LogBase
+from logic.logic_click_base import LogClickBase
+from logic.logic_locate_base import LogLocateBase
 from selenium.webdriver.firefox.firefox_profile import FirefoxProfile
 
 
