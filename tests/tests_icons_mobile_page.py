@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-from allure import attach, attach_type
+# from allure import attach, attach_type
 import time
 from context.context_icons_mobile_page import ContextIconsMobile
 from locators.locators_icons_mobile_page import LocIconsMobile

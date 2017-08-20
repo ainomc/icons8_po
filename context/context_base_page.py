@@ -2,9 +2,9 @@
 
 import json
 import os
-import pytest
-import allure
-from allure import attach, attach_type
+# import pytest
+# import allure
+# from allure import attach, attach_type
 from selenium import webdriver
 from icons8_po.logic.logic_base_page import LogBase
 from icons8_po.logic.logic_click_base import LogClickBase
