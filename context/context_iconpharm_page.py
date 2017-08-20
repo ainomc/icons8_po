@@ -1,7 +1,9 @@
 # -*- coding: utf-8 -*-
 
 from selenium import webdriver
-from logic.logic_base_page import LogBase
+from icons8_po.logic.logic_base_page import LogBase
+from icons8_po.logic.logic_click_base import LogClickBase
+from icons8_po.logic.logic_locate_base import LogLocateBase
 from locators.locators_iconpharm_page import LocIconPharm
 from selenium.webdriver.firefox.firefox_profile import FirefoxProfile
 from context_base_page import ContextBase
@@ -33,13 +35,16 @@ class ContextIconPharm(ContextBase):
         cls.driver.maximize_window()
 
         # Login
-        cls.logBase = LogBase(cls.driver)
-        cls.logBase.click_text('Login')
-        cls.logBase.input_text_to_xpath(ContextIconPharm.login,
+        cls.base = LogBase(cls.driver)
+        cls.click = LogClickBase(cls.driver)
+        cls.locate = LogLocateBase(cls.driver)
+
+        cls.click.click_text('Login')
+        cls.base.input_text_to_xpath(ContextIconPharm.login,
                                         LocIconPharm.email_field)
-        cls.logBase.input_text_to_xpath(ContextIconPharm.password,
+        cls.base.input_text_to_xpath(ContextIconPharm.password,
                                         LocIconPharm.password_field)
-        cls.logBase.click_value('Login')
+        cls.click.click_value('Login')
 
     def teardown_class(cls):
         """Actions after class tests"""
@@ -49,8 +54,4 @@ class ContextIconPharm(ContextBase):
     def setup(self):
         """Actions before tests"""
         # Open home page
-        self.logBase.open_home_page(ContextIconPharm.home_page_iconpharm)
-
-    def teardown(self):
-        """Actions after tests"""
-        pass
+        self.base.open_home_page(ContextIconPharm.home_page_iconpharm)

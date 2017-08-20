@@ -2,12 +2,17 @@
 
 import json
 import os
+import pytest
+import allure
+from allure import attach, attach_type
 from selenium import webdriver
-from logic.logic_base_page import LogBase
+from icons8_po.logic.logic_base_page import LogBase
+from icons8_po.logic.logic_click_base import LogClickBase
+from icons8_po.logic.logic_locate_base import LogLocateBase
 from selenium.webdriver.firefox.firefox_profile import FirefoxProfile
 
 
-class ContextBase:
+class ContextBase(object):
     """Base Context/Fixtures"""
 
     # Path to download folder
@@ -46,7 +51,9 @@ class ContextBase:
         # Open icon8 home page url
         cls.driver.get(ContextBase.url)
         cls.driver.maximize_window()
-        cls.logBase = LogBase(cls.driver)
+        cls.base = LogBase(cls.driver)
+        cls.click = LogClickBase(cls.driver)
+        cls.locate = LogLocateBase(cls.driver)
 
     def teardown_class(cls):
         """Actions after test class"""
@@ -56,8 +63,9 @@ class ContextBase:
     def setup(self):
         """Actions before each test"""
         # Open home page
-        self.logBase.open_home_page(ContextBase.url)
-
+        self.base.open_home_page(ContextBase.url)
+    '''
     def teardown(self):
         """Actions after each tests"""
-        pass
+        attach('screenshot', self.driver.get_screenshot_as_png(), type=attach_type.PNG)
+    '''

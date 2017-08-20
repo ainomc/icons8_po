@@ -50,3 +50,14 @@ if "win" in platform:
     # tests_icons_mobile_page.py
 elif "linux" in platform:
     os.system('python -m pytest -v %s -s -l --junitxml=/var/lib/jenkins/workspace/icons8selenium_po_tests/report/junit.xml --html=html_report/report.html' % str_list)
+
+'''
+# Run tests with all tests files
+if "win" in platform:
+    # os.system(r'python -m pytest -v tests\tests_landing_page.py -s -l')
+    #os.system(r'python -m pytest -v %s -s -l --html=html_report/report.html --self-contained-html' % str_list)
+    os.system(r'python -m pytest -v %s -s -l --alluredir C:\icon8\icons8_po\html_report' % str_list)
+    # tests_icons_mobile_page.py
+elif "linux" in platform:
+    os.system('python -m pytest -v %s -s -l --junitxml=/var/lib/jenkins/workspace/icons8selenium_po_tests/report/junit.xml --html=html_report/report.html' % str_list)
+'''

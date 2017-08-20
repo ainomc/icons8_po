@@ -1,7 +1,9 @@
 # -*- coding: utf-8 -*-
 
 from selenium import webdriver
-from logic.logic_base_page import LogBase
+from icons8_po.logic.logic_base_page import LogBase
+from icons8_po.logic.logic_click_base import LogClickBase
+from icons8_po.logic.logic_locate_base import LogLocateBase
 from selenium.webdriver.firefox.firefox_profile import FirefoxProfile
 from context_base_page import ContextBase
 
@@ -30,7 +32,9 @@ class ContextIconsMobile(ContextBase):
         # Open home page
         cls.driver.get(ContextBase.home_page_icons_mobile)
         cls.driver.set_window_size(750, 1334)
-        cls.logBase = LogBase(cls.driver)
+        cls.base = LogBase(cls.driver)
+        cls.click = LogClickBase(cls.driver)
+        cls.locate = LogLocateBase(cls.driver)
 
     def teardown_class(cls):
         """Actions after test class"""
@@ -40,8 +44,4 @@ class ContextIconsMobile(ContextBase):
     def setup(self):
         """Actions before each test"""
         # Open home page
-        self.logBase.open_home_page(ContextBase.home_page_icons_mobile)
-
-    def teardown(self):
-        """Actions after each test"""
-        pass
+        self.base.open_home_page(ContextBase.home_page_icons_mobile)

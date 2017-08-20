@@ -21,8 +21,11 @@ path_to_test_folder = os.getcwd()
 download_folder_path = path_to_test_folder + path_to_download_folder[1:]
 
 
-class LogBase(LogClickBase, LogLocateBase):
+class LogBase(object):
     """Base logic of tests"""
+
+    def __init__(self, driver):
+        self.driver = driver
 
     # Positive text for search
     positive_text = random.choice(['google', 'facebook', 'space', 'ball', 'car', 'word'])
