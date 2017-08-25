@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 
+import time
 from selenium import webdriver
 from logic.logic_base_page import LogBase
 from logic.logic_click_base import LogClickBase
@@ -32,6 +33,7 @@ class ContextIconsMobile(ContextBase):
         # Open home page
         cls.driver.get(ContextBase.home_page_icons_mobile)
         cls.driver.set_window_size(750, 1334)
+
         cls.base = LogBase(cls.driver)
         cls.click = LogClickBase(cls.driver)
         cls.locate = LogLocateBase(cls.driver)
@@ -44,4 +46,9 @@ class ContextIconsMobile(ContextBase):
     def setup(self):
         """Actions before each test"""
         # Open home page
-        self.base.open_home_page(ContextBase.home_page_icons_mobile)
+        try:
+            time.sleep(1)
+            self.base.open_home_page(ContextBase.home_page_icons_mobile)
+        except:
+            time.sleep(1)
+            self.base.open_home_page(ContextBase.home_page_icons_mobile)
