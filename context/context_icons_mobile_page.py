@@ -48,7 +48,7 @@ class ContextIconsMobile(ContextBase):
         # Open home page
         try:
             time.sleep(1)
-            self.base.open_home_page(ContextBase.home_page_icons_mobile)
+            self.driver.get(ContextBase.home_page_icons_mobile)
         except:
             time.sleep(1)
-            self.base.open_home_page(ContextBase.home_page_icons_mobile)
+            self.driver.get(ContextBase.home_page_icons_mobile)
