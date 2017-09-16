@@ -2,18 +2,12 @@
 
 import os
 import random
-import json
 import time
 from selenium import webdriver
 from os import listdir
 
-from logic_click_base import LogClickBase
-from logic_locate_base import LogLocateBase
-
 # Read param.json with params
-my_data = json.loads(open("param.json").read())
-url = my_data['server']
-TIME_FOR_WAIT = int(my_data['time_for_wait'])
+TIME_FOR_WAIT = 12
 
 # Download folder
 path_to_download_folder = os.path.join(' ', 'download')
@@ -28,7 +22,8 @@ class LogBase(object):
         self.driver = driver
 
     # Positive text for search
-    positive_text = random.choice(['google', 'facebook', 'space', 'ball', 'car', 'word'])
+    positive_text = random.choice(['google', 'facebook', 'space',
+                                   'ball', 'car', 'word'])
 
     def input_text_to_xpath(self, text, xpath):
         """Find field by xpath, clear and input text"""

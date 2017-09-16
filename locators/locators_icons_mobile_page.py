@@ -22,7 +22,7 @@ class LocIconsMobile(LocatorsBase):
     icon_name = './/*[@class="c-pretty-link m-inline"]'
     icon_name_in_icon_page = './/*[@ng-bind="vm.pageTitle"]'
     icon_subtitle = './/*[@ng-bind-html="vm.mainSubtitleText"]'
-    icon_in_icon_page = './/*[@ class="m-color-icon"]'
+    icon_in_icon_page = './/*[@class="b-with-icon"]'
     icon_page_download_bu = './/button[@class="c-button red"]'
     icon_page_generate_html = '''.//*[@classes="'c-button white'"]'''
 

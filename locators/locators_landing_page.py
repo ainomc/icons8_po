@@ -14,7 +14,8 @@ class LocLandind(LocatorsBase):
     icon_category = './/*[@class="c-breadcrumbs"]/*[3]/*[1]'
     icon_text = './/*[@ng-bind-html="vm.mainSubtitleText"]'
     icon = '//*[@class="col-md-4 m-full-width b-main-icon m-main-icon"]/*'
-    download_button = '//button[contains(text(), "Download")]'
+    download_button = '//butt' \
+                      'on[contains(text(), "Download")]'
     choose_PNG_size = '//*[@class="icon-format-item icon-format-dropdown' \
                       ' off-click-dropdownsize m-center"]'
     icon_download_sizes = '//ul[@class="c-list m-nooverflow"]/*[%s]' \
