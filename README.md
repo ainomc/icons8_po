@@ -1,5 +1,5 @@
 # icon8 selenium/pytest tests
-Runner: python init.py -login po_tests@gmail.com -password 123 -server https://demo.icons8.com/
+Runner: python -m pytest -v tests/tests_* -s -l --login po_tests@gmail.com  --password 123 --landing_url https://demo.icons8.com/icon/ --icon8_mobile_url https://demo.icons8.com/icons/ --junitxml=report/junit.xml --html=html_report/report.html
 
 
 Structure:
