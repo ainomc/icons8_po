@@ -11,7 +11,7 @@ class TestIconsMobile(object):
     https://demo.icons8.com/icons/
     """
 
-    def test_main_menu_items(self, mobile_pre, click, locate):
+    def test_main_menu_items(self, setup_mobile, click, locate):
         """Tests of main menu items"""
         click.click_xpath(LocIconsMobile.open_main_menu)
         locate.locate_text("Icons")
@@ -22,75 +22,75 @@ class TestIconsMobile(object):
         locate.locate_text_part("Register")
         locate.locate_text_part("Login")
 
-    def test_menu_icons_button(self, mobile_pre, click, locate):
+    def test_menu_icons_button(self, setup_mobile, click, locate):
         """Tests of main menu icon button"""
         click.click_xpath(LocIconsMobile.open_main_menu)
         click.click_text("Icons")
         locate.locate_xpath(LocIconsMobile.desktop_version_locator)
 
-    def test_menu_request_button(self, mobile_pre, click, locate):
+    def test_menu_request_button(self, setup_mobile, click, locate):
         """Tests of main menu icon button"""
         click.click_xpath(LocIconsMobile.open_main_menu)
         click.click_text("Request")
         locate.locate_text("Request Icons")
 
-    def test_menu_buy_button(self, mobile_pre, click, locate):
+    def test_menu_buy_button(self, setup_mobile, click, locate):
         """Tests of main menu icon button"""
         click.click_xpath(LocIconsMobile.open_main_menu)
         click.click_text("Buy")
         locate.locate_text("Free")
 
-    def test_menu_imessage_button(self, mobile_pre, click, locate):
+    def test_menu_imessage_button(self, setup_mobile, click, locate):
         """Tests of main menu icon button"""
         click.click_xpath(LocIconsMobile.open_main_menu)
         click.click_xpath(LocIconsMobile.iMessage_stickers)
 
-    def test_menu_ai_button(self, mobile_pre, click, locate):
+    def test_menu_ai_button(self, setup_mobile, click, locate):
         """Tests of main menu icon button"""
         click.click_xpath(LocIconsMobile.open_main_menu)
         time.sleep(1)
         click.click_text("Icon Search AI")
         locate.locate_text_part("Draw an icon")
 
-    def test_menu_blog_button(self, mobile_pre, click, locate):
+    def test_menu_blog_button(self, setup_mobile, click, locate):
         """Tests of main menu icon button"""
         click.click_xpath(LocIconsMobile.open_main_menu)
         click.click_text("Blog")
         locate.locate_xpath(LocIconsMobile.blog_list)
 
-    def test_menu_register_button(self, mobile_pre, click, locate):
+    def test_menu_register_button(self, setup_mobile, click, locate):
         """Tests of main menu icon button"""
         click.click_xpath(LocIconsMobile.open_main_menu)
         locate.locate_text_part("Register")
         click.click_text_part("Register")
         locate.locate_text("Register at Icons8")
 
-    def test_menu_login_button(self, mobile_pre, click, locate):
+    def test_menu_login_button(self, setup_mobile, click, locate):
         """Tests of main menu icon button"""
         click.click_xpath(LocIconsMobile.open_main_menu)
         locate.locate_text_part("Login")
         click.click_text_part("Login")
         locate.locate_text_part("Forgot password?")
 
-    def test_platforms(self, mobile_pre, click, locate):
+    def test_platforms(self, setup_mobile, locate):
         """Tests of main menu icon button"""
         for platform in LocIconsMobile.platform_list:
             locate.locate_text(platform)
 
-    def test_change_lang_popup(self, mobile_pre, click, locate):
+    def test_change_lang_popup(self, setup_mobile, click, locate):
         """Tests of change language pop-up"""
         click.click_xpath(LocIconsMobile.open_main_menu)
         click.click_xpath(LocIconsMobile.change_lang)
         locate.locate_text("    French ")
 
-    def test_search(self, mobile_pre, base, click, locate):
+    def test_search(self, setup_mobile, base, click, locate):
         """Tests of search"""
         base.input_text_to_xpath(LocIconsMobile.search_text,
                                          LocIconsMobile.search_field)
         click.click_xpath(LocIconsMobile.search_button)
         locate.locate_xpath(LocIconsMobile.first_result_icon)
 
-    def test_icon_page(self, mobile_pre, icon8_mobile_url,
+    def test_icon_page(self, setup_mobile, icon8_mobile_url,
                        base, click, locate):
         """Tests of icon page"""
         click.click_xpath(LocIconsMobile.first_result_icon)
@@ -110,7 +110,7 @@ class TestIconsMobile(object):
         locate.locate_xpath(LocIconsMobile.icon_page_generate_html)
         locate.locate_xpath(LocIconsMobile.icon_page_tags_list)
 
-    def test_right_menu_bar(self, mobile_pre, click, locate):
+    def test_right_menu_bar(self, setup_mobile, click, locate):
         """Tests of right menu bar"""
         click.click_xpath(LocIconsMobile.first_result_icon)
         locate.locate_text('Download')
