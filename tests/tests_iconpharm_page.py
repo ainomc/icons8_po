@@ -293,7 +293,7 @@ class TestIconPharm(object):
         click.click_value('Register')
         locate.locate_text_part('My Account')
 
-    def tests_more_icons_button(self, iconpharm_pre, base, click):
+    def tests_more_icons_button(self, setup_iconpharm, base, click):
         """Click and check 'More icons' button"""
         click.click_xpath(LocIconPharm.grid_label)
         click.click_text('More Icons')
