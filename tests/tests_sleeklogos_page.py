@@ -5,7 +5,8 @@ import pytest
 from locators.locators_sleeklogos_page import LocSleekLogos
 
 
-@pytest.mark.usefixtures("driver_sleeklogos", "setup_cls_sleeklogos", "base", "click", "locate")
+@pytest.mark.usefixtures("driver_sleeklogos", "setup_cls_sleeklogos",
+                         "base", "click", "locate")
 class TestSleekLogos(object):
     """Tests of SleekLogos
     https://sleeklogos.design/web-app/new-icons/all
@@ -26,7 +27,8 @@ class TestSleekLogos(object):
 
     def test_search_icons(self, setup_sleeklogos, base, click, locate):
         """Tests search and presents search resuilt"""
-        base.input_text_to_xpath(LocSleekLogos.search_text, LocSleekLogos.search_field)
+        base.input_text_to_xpath(LocSleekLogos.search_text,
+                                 LocSleekLogos.search_field)
         click.click_xpath(LocSleekLogos.search_button)
         locate.locate_xpath(LocSleekLogos.icons_resuilt)
 
@@ -62,7 +64,8 @@ class TestSleekLogos(object):
         locate.locate_text_part('new password')
         click.click_value('Save Profile')
 
-    def tests_login(self, setup_sleeklogos, sleeklogos_url, login, password, base, click, locate):
+    def tests_login(self, setup_sleeklogos, sleeklogos_url, login,
+                    password, base, click, locate):
         """Tests login"""
         click.click_xpath(LocSleekLogos.logout)
         base.open_home_page(sleeklogos_url)
@@ -77,7 +80,8 @@ class TestSleekLogos(object):
         click.click_value('Login')
         locate.locate_text_part('My Account')
 
-    def tests_register(self, setup_sleeklogos, sleeklogos_url, base, click, locate):
+    def tests_register(self, setup_sleeklogos, sleeklogos_url,
+                       base, click, locate):
         """Tests register"""
         click.click_xpath(LocSleekLogos.logout)
         base.open_home_page(sleeklogos_url)
@@ -86,8 +90,10 @@ class TestSleekLogos(object):
         locate.locate_text('email')
         locate.locate_text('password')
         locate.locate_xpath(LocSleekLogos.show_pass)
-        base.input_text_to_xpath(base.random_email(), LocSleekLogos.email_field)
-        base.input_text_to_xpath(base.random_text(4), LocSleekLogos.password_field)
+        base.input_text_to_xpath(base.random_email(),
+                                 LocSleekLogos.email_field)
+        base.input_text_to_xpath(base.random_text(4),
+                                 LocSleekLogos.password_field)
         click.click_value('Register')
         locate.locate_text_part('My Account')
 
@@ -105,7 +111,8 @@ class TestSleekLogos(object):
         click.click_xpath(LocSleekLogos.create_collection)
         click.click_xpath(LocSleekLogos.collections)
         click.click_xpath(LocSleekLogos.rename_collection)
-        base.input_text_to_xpath(base.random_text(4), LocSleekLogos.collection_name)
+        base.input_text_to_xpath(base.random_text(4),
+                                 LocSleekLogos.collection_name)
         click.click_xpath(LocSleekLogos.confirm_name)
         click.click_xpath(LocSleekLogos.icons_resuilt)
         locate.locate_xpath(LocSleekLogos.first_collection)
@@ -113,7 +120,8 @@ class TestSleekLogos(object):
         click.click_xpath(LocSleekLogos.delete_collection_icon)
         click.click_xpath(LocSleekLogos.confirm_delete_icon)
         click.click_xpath(LocSleekLogos.delete_menu_collections)
-        click.click_all_and_confirm(LocSleekLogos.delete_collection, LocSleekLogos.confirm_delete_collection)
+        click.click_all_and_confirm(LocSleekLogos.delete_collection,
+                                    LocSleekLogos.confirm_delete_collection)
 
     def test_generate_html(self, setup_sleeklogos, click, locate):
         """Tests generate HTML"""
@@ -144,7 +152,8 @@ class TestSleekLogos(object):
         locate.locate_text('Save Effects')
         locate.locate_text('Cancel')
 
-    def test_icon_editor_icon_color_popup(self, setup_sleeklogos, click, locate):
+    def test_icon_editor_icon_color_popup(self, setup_sleeklogos,
+                                          click, locate):
         """Tests color icon editor pop-up in icon editor"""
         click.click_xpath(LocSleekLogos.open_icon_editor)
         click.click_xpath(LocSleekLogos.icon_color_edit)
@@ -153,7 +162,8 @@ class TestSleekLogos(object):
         click.click_xpath(LocSleekLogos.color_palette)
         locate.locate_xpath(LocSleekLogos.canvas)
 
-    def test_icon_editor_overlay_color_popup(self, setup_sleeklogos, click, locate):
+    def test_icon_editor_overlay_color_popup(self, setup_sleeklogos,
+                                             click, locate):
         """Tests color overlay editor pop-up in icon editor"""
         click.click_xpath(LocSleekLogos.open_icon_editor)
         click.click_xpath(LocSleekLogos.overlay_color_edit)
@@ -258,7 +268,8 @@ class TestSleekLogos(object):
         click.click_xpath(LocSleekLogos.create_collection)
         click.click_xpath(LocSleekLogos.collections)
         click.click_xpath(LocSleekLogos.rename_collection)
-        base.input_text_to_xpath(base.random_text(4), LocSleekLogos.collection_name)
+        base.input_text_to_xpath(base.random_text(4),
+                                 LocSleekLogos.collection_name)
         click.click_xpath(LocSleekLogos.confirm_name)
         click.click_xpath(LocSleekLogos.icons_resuilt)
         locate.locate_xpath(LocSleekLogos.first_collection)
@@ -270,7 +281,8 @@ class TestSleekLogos(object):
         click.click_xpath(LocSleekLogos.delete_collection_icon)
         click.click_xpath(LocSleekLogos.confirm_delete_icon)
         click.click_xpath(LocSleekLogos.delete_menu_collections)
-        click.click_all_and_confirm(LocSleekLogos.delete_collection, LocSleekLogos.confirm_delete_collection)
+        click.click_all_and_confirm(LocSleekLogos.delete_collection,
+                                    LocSleekLogos.confirm_delete_collection)
 
     def test_download_get_svg_set(self, setup_sleeklogos, base, click, locate):
         """Tests download test Get SVG set"""
@@ -278,7 +290,8 @@ class TestSleekLogos(object):
         click.click_xpath(LocSleekLogos.create_collection)
         click.click_xpath(LocSleekLogos.collections)
         click.click_xpath(LocSleekLogos.rename_collection)
-        base.input_text_to_xpath(base.random_text(4), LocSleekLogos.collection_name)
+        base.input_text_to_xpath(base.random_text(4),
+                                 LocSleekLogos.collection_name)
         click.click_xpath(LocSleekLogos.confirm_name)
         click.click_xpath(LocSleekLogos.icons_resuilt)
         locate.locate_xpath(LocSleekLogos.first_collection)
@@ -289,4 +302,5 @@ class TestSleekLogos(object):
         click.click_xpath(LocSleekLogos.delete_collection_icon)
         click.click_xpath(LocSleekLogos.confirm_delete_icon)
         click.click_xpath(LocSleekLogos.delete_menu_collections)
-        click.click_all_and_confirm(LocSleekLogos.delete_collection, LocSleekLogos.confirm_delete_collection)
+        click.click_all_and_confirm(LocSleekLogos.delete_collection,
+                                    LocSleekLogos.confirm_delete_collection)

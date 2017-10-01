@@ -1,4 +1,7 @@
 *.pyc
 *.cache
 .cache
+*.html
+/html_report/assets/
+*.xml
 __pycache__

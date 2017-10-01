@@ -5,7 +5,8 @@ import pytest
 from locators.locators_iconpharm_page import LocIconPharm
 
 
-@pytest.mark.usefixtures("driver_iconpharm", "setup_cls_iconpharm", "base", "click", "locate")
+@pytest.mark.usefixtures("driver_iconpharm", "setup_cls_iconpharm",
+                         "base", "click", "locate")
 class TestIconPharm(object):
     """Tests of IconPharm
     https://iconpharm.com/web-app/new-icons/all
@@ -109,7 +110,8 @@ class TestIconPharm(object):
         locate.locate_text('Save Effects')
         locate.locate_text('Cancel')
 
-    def test_icon_editor_icon_color_popup(self, setup_iconpharm, click, locate):
+    def test_icon_editor_icon_color_popup(self, setup_iconpharm,
+                                          click, locate):
         """Tests color icon editor pop-up in icon editor"""
         click.click_xpath(LocIconPharm.open_icon_editor)
         click.click_xpath(LocIconPharm.icon_color_edit)
@@ -118,7 +120,8 @@ class TestIconPharm(object):
         click.click_xpath(LocIconPharm.color_palette)
         locate.locate_xpath(LocIconPharm.canvas)
 
-    def test_icon_editor_overlay_color_popup(self, setup_iconpharm, click, locate):
+    def test_icon_editor_overlay_color_popup(self, setup_iconpharm,
+                                             click, locate):
         """Tests color overlay editor pop-up in icon editor"""
         click.click_xpath(LocIconPharm.open_icon_editor)
         click.click_xpath(LocIconPharm.overlay_color_edit)
