@@ -40,5 +40,3 @@ class TestLandingPage(object):
         locate.locate_text_part('Browse by tags')
         click.click_xpath(LocLandind.icon_category)
         locate.locate_xpath(LocLandind.icons_result)
-        locate.locate_xpath(LocLandind.icon_in_result)
-        locate.locate_xpath(LocLandind.category_title)

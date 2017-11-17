@@ -11,6 +11,48 @@ class TestIconPharm(object):
     """Tests of IconPharm
     https://iconpharm.com/web-app/new-icons/all
     """
+
+    def tests_register(self, setup_iconpharm, iconpharm_url,
+                       base, click, locate):
+        """Tests register"""
+        base.open_home_page('https://iconpharm.com/logout')
+        base.open_home_page('https://iconpharm.com/web-app/new-icons/all')
+        time.sleep(2)
+        click.click_xpath(LocIconPharm.register_button)
+        locate.locate_text_part('Register at IconPharm')
+        locate.locate_text('email')
+        locate.locate_text('password')
+        locate.locate_xpath(LocIconPharm.show_pass)
+        base.input_text_to_xpath(base.random_email(),
+                                 LocIconPharm.email_field)
+        base.input_text_to_xpath(base.random_text(4),
+                                 LocIconPharm.password_field)
+        click.click_value('Register')
+        locate.locate_text_part('My Account')
+
+    def tests_login(self, setup_iconpharm, iconpharm_url, login,
+                    password, base, click, locate):
+        """Tests login"""
+        base.open_home_page('https://iconpharm.com/logout')
+        base.open_home_page('https://iconpharm.com/web-app/new-icons/all')
+        time.sleep(2)
+        click.click_xpath(LocIconPharm.login_button)
+        locate.locate_text_part('Login to IconPharm')
+        locate.locate_text('email')
+        locate.locate_text('password')
+        locate.locate_text_part('Forgot password?')
+        locate.locate_xpath(LocIconPharm.show_pass)
+        base.input_text_to_xpath(login, LocIconPharm.email_field)
+        base.input_text_to_xpath(password, LocIconPharm.password_field)
+        click.click_value('Login')
+        locate.locate_text_part('My Account')
+
+    def tests_my_account(self, setup_iconpharm, login, click, locate):
+        """Tests 'My account' information"""
+        click.click_text_part('My Account')
+        locate.locate_text('Account')
+        locate.locate_text(login)
+
     def test_platforms(self, setup_iconpharm, click, locate):
         """Tests presents of all platforms and platforms resuilt"""
         for type_num in range(1, 4):
@@ -41,12 +83,6 @@ class TestIconPharm(object):
         click.click_xpath(LocIconPharm.grid_label)
         locate.locate_xpath(LocIconPharm.icons_resuilt)
         assert locate.displayed_xpath(LocIconPharm.label) is True
-
-    def tests_my_account(self, setup_iconpharm, login, click, locate):
-        """Tests 'My account' information"""
-        click.click_text_part('My Account')
-        locate.locate_text('Account')
-        locate.locate_text(login)
 
     def tests_change_email_or_password(self, setup_iconpharm, click, locate):
         """Tests check change email or password"""
@@ -180,6 +216,7 @@ class TestIconPharm(object):
         base.wait_presents_file('.svg')
         base.del_by_extension('.svg')
 
+    @pytest.mark.xfail
     def test_download_svg_big(self, setup_iconpharm, base, click, locate):
         """Tests download test SVG/Big size"""
         click.click_xpath(LocIconPharm.download_popup)
@@ -190,6 +227,7 @@ class TestIconPharm(object):
         base.wait_presents_file('.svg')
         base.del_by_extension('.svg')
 
+    @pytest.mark.xfail
     def test_download_esp_sml(self, setup_iconpharm, base, click, locate):
         """Test download test ESP/Small size"""
         click.click_xpath(LocIconPharm.download_popup)
@@ -200,6 +238,7 @@ class TestIconPharm(object):
         base.wait_presents_file('.eps')
         base.del_by_extension('.eps')
 
+    @pytest.mark.xfail
     def test_download_esp_mdl(self, setup_iconpharm, base, click, locate):
         """Tests download test ESP/Middle size"""
         click.click_xpath(LocIconPharm.download_popup)
@@ -262,39 +301,6 @@ class TestIconPharm(object):
         click.click_xpath(LocIconPharm.delete_menu_collections)
         click.click_all_and_confirm(LocIconPharm.delete_collection,
                                     LocIconPharm.confirm_delete_collection)
-
-    def tests_login(self, setup_iconpharm, iconpharm_url, login,
-                    password, base, click, locate):
-        """Tests login"""
-        click.click_xpath(LocIconPharm.logout)
-        base.open_home_page(iconpharm_url)
-        click.click_xpath(LocIconPharm.login_button)
-        locate.locate_text_part('Login to IconPharm')
-        locate.locate_text('email')
-        locate.locate_text('password')
-        locate.locate_text_part('Forgot password?')
-        locate.locate_xpath(LocIconPharm.show_pass)
-        base.input_text_to_xpath(login, LocIconPharm.email_field)
-        base.input_text_to_xpath(password, LocIconPharm.password_field)
-        click.click_value('Login')
-        locate.locate_text_part('My Account')
-
-    def tests_register(self, setup_iconpharm, iconpharm_url,
-                       base, click, locate):
-        """Tests register"""
-        click.click_xpath(LocIconPharm.logout)
-        base.open_home_page(iconpharm_url)
-        click.click_xpath(LocIconPharm.register_button)
-        locate.locate_text_part('Register at IconPharm')
-        locate.locate_text('email')
-        locate.locate_text('password')
-        locate.locate_xpath(LocIconPharm.show_pass)
-        base.input_text_to_xpath(base.random_email(),
-                                 LocIconPharm.email_field)
-        base.input_text_to_xpath(base.random_text(4),
-                                 LocIconPharm.password_field)
-        click.click_value('Register')
-        locate.locate_text_part('My Account')
 
     def tests_more_icons_button(self, setup_iconpharm, base, click):
         """Click and check 'More icons' button"""

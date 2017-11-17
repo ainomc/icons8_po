@@ -10,23 +10,18 @@ class LocLandind(LocatorsBase):
     field = '//*[@placeholder="%s"]'
     search_field = field % 'search'
     search_button = '//*[@class="b-search-btn"]'
-    icon_name = '//*[@class="c-pretty-link m-inline"]'
-    icon_category = './/*[@class="c-breadcrumbs"]/*[3]/*[1]'
-    icon_text = './/*[@ng-bind-html="vm.mainSubtitleText"]'
-    icon = '//*[@class="col-md-4 m-full-width b-main-icon m-main-icon"]/*'
-    download_button = '//butt' \
-                      'on[contains(text(), "Download")]'
-    choose_PNG_size = '//*[@class="icon-format-item icon-format-dropdown' \
-                      ' off-click-dropdownsize m-center"]'
-    icon_download_sizes = '//ul[@class="c-list m-nooverflow"]/*[%s]' \
+    icon_name = './/*[@class="content"]/a[@class="title"]'
+    icon_category = './/a[@href="/icon/new-icons/all"]'
+    icon_text = './/*[@class="app-page-section is-underline"][1]'
+    icon = './/*[@class="app-icon icon-page-icon is-custom-size"]'
+    download_button = './/*[@class="actions button-group"]/*[1]'
+    choose_PNG_size = './/*[@class="app-popup popup"]'
+    icon_download_sizes = './/*[@ class="format"]/div/div[%s]' \
                           % random.randint(1, 4)
-    icon_download_format = '//*[@class="c-list m-nooverflow b-format"]/*[%s]' \
+    icon_download_format = './/*[@class="size"]/div/div[%s]' \
                            % random.randint(1, 4)
 
-    tag = '//*[@class="b-tags-list"]/a[1]'
-    icon_in_tag = '//span[@class="icons-set_element"][1]'
-    icons_result = '//*[@class="icons-set"]/descendant::span[%s]' \
+    tag = './/*[@class="app-tabs-header"]/div[1]'
+    icon_in_tag = './/*[@class="set"]/a[1]'
+    icons_result = './/div[@class="icon-grid"][1]/div/a[%s]' \
                    % random.randint(1, 5)
-    icon_in_result = '//div[@class="b-subcategory-wrapper"][1]' \
-                     '/descendant::a[%s]' % random.randint(1, 5)
-    category_title = '//*[@ng-bind-html="vm.category.title"]'

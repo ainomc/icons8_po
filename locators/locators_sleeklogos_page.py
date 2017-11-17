@@ -26,7 +26,7 @@ class LocSleekLogos(LocatorsBase):
     password_field = '''.//*[@id='RegisterForm_password']'''
     login_button = './/*[@href="/login/"]'
     register_button = './/*[@href="/register/"]'
-    logout = '//*[@href="/logout/"]'
+    logout = './/*[@href="/logout/"]'
     show_pass = '//*[@class="showPass"]'
 
     icon_name = './/*[@class="icon-preview__title"]'
