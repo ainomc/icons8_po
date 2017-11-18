@@ -12,7 +12,7 @@ class LocIconsMobile(LocatorsBase):
     iMessage_stickers = '//span[contains(text(), "iMessage Stickers")]'
 
     first_icon = './/*[@class="set-icons cf"]/a[1]'
-    change_lang = './/*[@class="app-menu-language"]'
+    change_lang = './/*[@class="app-menu-language-icon"]'
 
     search_field = './/input[@class="auto-complete-input"]'
     search_button = './/*[@class="app-search-icon"]'

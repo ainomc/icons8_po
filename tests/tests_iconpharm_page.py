@@ -216,7 +216,6 @@ class TestIconPharm(object):
         base.wait_presents_file('.svg')
         base.del_by_extension('.svg')
 
-    @pytest.mark.xfail
     def test_download_svg_big(self, setup_iconpharm, base, click, locate):
         """Tests download test SVG/Big size"""
         click.click_xpath(LocIconPharm.download_popup)
@@ -249,6 +248,7 @@ class TestIconPharm(object):
         base.wait_presents_file('.eps')
         base.del_by_extension('.eps')
 
+    @pytest.mark.xfail
     def test_download_esp_big(self, setup_iconpharm, base, click, locate):
         """Tests download test ESP/Big size"""
         click.click_xpath(LocIconPharm.download_popup)

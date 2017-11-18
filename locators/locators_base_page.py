@@ -7,8 +7,8 @@ import random
 class LocatorsBase(object):
     """Base locators"""
 
-    platform_list = ['All', 'iOS', 'Windows 10', 'iOS Glyphs', 'Material',
-                     'Office', 'Nolan']
+    platform_list = ['All', 'Windows 10', 'Material',
+                     'Office', 'Color']
     search_text_list = ['Google', 'Facebook', 'Icon', 'Game', 'Phone']
     search_text = random.choice(search_text_list)
 
