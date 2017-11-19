@@ -23,5 +23,4 @@ class LocLandind(LocatorsBase):
 
     tag = './/*[@class="app-tabs-header"]/div[1]'
     icon_in_tag = './/*[@class="set"]/a[1]'
-    icons_result = './/div[@class="icon-grid"][1]/div/a[%s]' \
-                   % random.randint(1, 5)
+    icons_result = './/div[@class="icon-grid"][1]/div/a[1]'
