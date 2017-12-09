@@ -1,6 +1,12 @@
 # icon8 selenium/pytest tests
 
-### Run
+### Minimum Requirements
+    Python 2.7
+    Pytest-3.1.2
+    Selenium 2.53.0
+    Firefox 45.0
+
+### How to run
     Runner: python -m pytest -v tests/tests_* -s -l --login po_tests@gmail.com  --password 123 --landing_url https://demo.icons8.com/icon/ --icon8_mobile_url https://demo.icons8.com/icons/ --junitxml=junit_report/junit.xml --html=html_report/report.html
 
 
