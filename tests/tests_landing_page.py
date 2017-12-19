@@ -30,6 +30,8 @@ class TestLandingPage(object):
         locate.locate_text_part('Browse by tags')
         click.click_xpath(LocLandind.tag)
         locate.locate_text_part('Here we go with the icons related')
+        import time
+        time.sleep(5)
         locate.locate_xpath(LocLandind.icon_in_tag)
 
     def test_landing_page_category(self, setup_landing, click, locate):

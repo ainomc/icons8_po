@@ -9,13 +9,13 @@ def pytest_addoption(parser):
     parser.addoption("--password", action="store",
                      default="123", help="password")
     parser.addoption("--server", action="store",
-                     default="demo", help="server")
+                     default="dev", help="server")
 
     parser.addoption("--landing_url", action="store",
-                     default="https://demo.icons8.com/icon/",
+                     default="https://dev.icons8.com/icon/",
                      help="landing_url")
     parser.addoption("--icon8_mobile_url", action="store",
-                     default="https://demo.icons8.com/icons/",
+                     default="https://dev.icons8.com/icons/",
                      help="icon8_mobile_url")
     parser.addoption("--sleeklogos_url", action="store",
                      default="https://sleeklogos.design/web-app/new-icons/all",

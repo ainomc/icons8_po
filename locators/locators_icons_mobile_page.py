@@ -21,8 +21,8 @@ class LocIconsMobile(LocatorsBase):
 
     icon_name = './/*[@class="content"]/a[@class="title"]'
     icon_name_in_icon_page = './/*[@class="app-page-section"]/h1[@ class="app-page-title"][1]'
-    icon_subtitle = './/*[@class="app-icon icon-page-icon is-custom-size"]'
-    icon_in_icon_page = './/*[@class="app-icon icon-page-icon is-custom-size"]'
+    icon_subtitle = './/*[@class="app-page-section is-underline"][1]'
+    icon_in_icon_page = './/div[@class="app-icon icon-page-icon is-ios11 is-custom-size"][1]'
     icon_page_download_bu = './/*[@class="actions button-group"]/div[1]'
     icon_page_generate_html = './/*[@class="actions button-group"]/div[2]'
 

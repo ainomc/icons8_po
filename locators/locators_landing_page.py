@@ -13,7 +13,7 @@ class LocLandind(LocatorsBase):
     icon_name = './/*[@class="content"]/a[@class="title"]'
     icon_category = './/a[@href="/icon/new-icons/all"]'
     icon_text = './/*[@class="app-page-section is-underline"][1]'
-    icon = './/*[@class="app-icon icon-page-icon is-custom-size"]'
+    icon = './/div[@class="app-icon icon-page-icon is-ios11 is-custom-size"][1]'
     download_button = './/*[@class="actions button-group"]/*[1]'
     choose_PNG_size = './/*[@class="app-popup popup"]'
     icon_download_sizes = './/*[@ class="format"]/div/div[%s]' \
@@ -21,6 +21,6 @@ class LocLandind(LocatorsBase):
     icon_download_format = './/*[@class="size"]/div/div[%s]' \
                            % random.randint(1, 4)
 
-    tag = './/*[@class="app-tabs-header"]/div[1]'
-    icon_in_tag = './/*[@class="set"]/a[1]'
+    tag = './/*[@class="icon-tags"]/a[1]'
+    icon_in_tag = './/*[@class="set is-labels-shown"]/a[1]'
     icons_result = './/div[@class="icon-grid"][1]/div/a[1]'

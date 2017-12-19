@@ -19,8 +19,11 @@ def setup_landing(request):
     base.open_home_page(url)
 
     # Open landing page
+    import time
     click.click_xpath(LocLandind.first_result_icon)
+    time.sleep(1)
     click.click_xpath(LocLandind.icon_name)
+
 
     try:
         locate.locate_text_part('Browse by tags')
