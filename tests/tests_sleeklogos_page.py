@@ -16,6 +16,7 @@ class TestSleekLogos(object):
                     password, base, click, locate):
         """Tests login"""
         click.click_xpath(LocSleekLogos.logout)
+        time.sleep(2)
         base.open_home_page(sleeklogos_url)
         click.click_xpath(LocSleekLogos.login_button)
         locate.locate_text_part('Login to SleekLogos')
@@ -32,6 +33,7 @@ class TestSleekLogos(object):
                        base, click, locate):
         """Tests register"""
         click.click_xpath(LocSleekLogos.logout)
+        time.sleep(2)
         base.open_home_page(sleeklogos_url)
         click.click_xpath(LocSleekLogos.register_button)
         locate.locate_text_part('Register at SleekLogos')
@@ -296,7 +298,6 @@ class TestSleekLogos(object):
         """Tests 'My account' information"""
         click.click_text_part('My Account')
         locate.locate_text('Account')
-        locate.locate_text(login)
 
     def tests_change_email_or_password(self, setup_sleeklogos, click, locate):
         """Tests change of email or password"""
