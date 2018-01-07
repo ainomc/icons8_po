@@ -1,4 +1,5 @@
 import pytest
+import time
 from context_fixtures.confest_fixtures_drivers import current_browser
 from locators.locators_iconpharm_page import LocIconPharm
 from logic.logic_base_page import LogBase
@@ -20,7 +21,9 @@ def setup_cls_iconpharm(request):
     base.input_text_to_xpath(login, LocIconPharm.email_field)
     base.input_text_to_xpath(password, LocIconPharm.password_field)
     click.click_value('Login')
+    time.sleep(2)
     base.open_home_page(url)
+
 
 
 @pytest.fixture

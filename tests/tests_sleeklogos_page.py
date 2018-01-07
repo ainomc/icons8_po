@@ -12,58 +12,6 @@ class TestSleekLogos(object):
     https://sleeklogos.design/web-app/new-icons/all
     """
 
-    def test_platforms(self, setup_sleeklogos, click, locate):
-        """Tests presents of all platforms and platforms resuilt"""
-        for platform in LocSleekLogos.platform_list:
-            click.click_text(platform)
-            locate.locate_xpath(LocSleekLogos.platform_search_name % platform)
-            locate.locate_xpath(LocSleekLogos.icons_resuilt)
-
-    def test_category(self, setup_sleeklogos, click, locate):
-        """Tests presents of all categories and category resuilt"""
-        for category_num in range(1, 28):
-            click.click_xpath(LocSleekLogos.category_list % category_num)
-            locate.locate_xpath(LocSleekLogos.icons_resuilt)
-
-    def test_search_icons(self, setup_sleeklogos, base, click, locate):
-        """Tests search and presents search resuilt"""
-        base.input_text_to_xpath(LocSleekLogos.search_text,
-                                 LocSleekLogos.search_field)
-        click.click_xpath(LocSleekLogos.search_button)
-        locate.locate_xpath(LocSleekLogos.icons_resuilt)
-
-    def test_grid_nolabel(self, setup_sleeklogos, click, locate):
-        """Tests grid nolabel"""
-        click.click_xpath(LocSleekLogos.grid_nolabel)
-        locate.locate_xpath(LocSleekLogos.icons_resuilt)
-        assert locate.displayed_xpath(LocSleekLogos.label) is False
-
-    def test_grid_label(self, setup_sleeklogos, click, locate):
-        """Tests grid label"""
-        click.click_xpath(LocSleekLogos.grid_label)
-        locate.locate_xpath(LocSleekLogos.icons_resuilt)
-        assert locate.displayed_xpath(LocSleekLogos.label) is True
-
-    def tests_more_icons_button(self, setup_sleeklogos, base, click, locate):
-        """Tests 'More icons' button"""
-        click.click_xpath(LocSleekLogos.grid_label)
-        click.click_text('More Icons')
-        assert 'icons8.com' in base.current_url()
-
-    def tests_my_account(self, setup_sleeklogos, login, click, locate):
-        """Tests 'My account' information"""
-        click.click_text_part('My Account')
-        locate.locate_text('Account')
-        locate.locate_text(login)
-
-    def tests_change_email_or_password(self, setup_sleeklogos, click, locate):
-        """Tests change of email or password"""
-        click.click_text_part('My Account')
-        click.click_text_part('change email or password')
-        locate.locate_text_part('username')
-        locate.locate_text_part('new password')
-        click.click_value('Save Profile')
-
     def tests_login(self, setup_sleeklogos, sleeklogos_url, login,
                     password, base, click, locate):
         """Tests login"""
@@ -304,3 +252,56 @@ class TestSleekLogos(object):
         click.click_xpath(LocSleekLogos.delete_menu_collections)
         click.click_all_and_confirm(LocSleekLogos.delete_collection,
                                     LocSleekLogos.confirm_delete_collection)
+
+
+    def test_platforms(self, setup_sleeklogos, click, locate):
+        """Tests presents of all platforms and platforms resuilt"""
+        for platform in LocSleekLogos.platform_list:
+            click.click_text(platform)
+            locate.locate_xpath(LocSleekLogos.platform_search_name % platform)
+            locate.locate_xpath(LocSleekLogos.icons_resuilt)
+
+    def test_category(self, setup_sleeklogos, click, locate):
+        """Tests presents of all categories and category resuilt"""
+        for category_num in range(1, 28):
+            click.click_xpath(LocSleekLogos.category_list % category_num)
+            locate.locate_xpath(LocSleekLogos.icons_resuilt)
+
+    def test_search_icons(self, setup_sleeklogos, base, click, locate):
+        """Tests search and presents search resuilt"""
+        base.input_text_to_xpath(LocSleekLogos.search_text,
+                                 LocSleekLogos.search_field)
+        click.click_xpath(LocSleekLogos.search_button)
+        locate.locate_xpath(LocSleekLogos.icons_resuilt)
+
+    def test_grid_nolabel(self, setup_sleeklogos, click, locate):
+        """Tests grid nolabel"""
+        click.click_xpath(LocSleekLogos.grid_nolabel)
+        locate.locate_xpath(LocSleekLogos.icons_resuilt)
+        assert locate.displayed_xpath(LocSleekLogos.label) is False
+
+    def test_grid_label(self, setup_sleeklogos, click, locate):
+        """Tests grid label"""
+        click.click_xpath(LocSleekLogos.grid_label)
+        locate.locate_xpath(LocSleekLogos.icons_resuilt)
+        assert locate.displayed_xpath(LocSleekLogos.label) is True
+
+    def tests_more_icons_button(self, setup_sleeklogos, base, click, locate):
+        """Tests 'More icons' button"""
+        click.click_xpath(LocSleekLogos.grid_label)
+        click.click_text('More Icons')
+        assert 'icons8.com' in base.current_url()
+
+    def tests_my_account(self, setup_sleeklogos, login, click, locate):
+        """Tests 'My account' information"""
+        click.click_text_part('My Account')
+        locate.locate_text('Account')
+        locate.locate_text(login)
+
+    def tests_change_email_or_password(self, setup_sleeklogos, click, locate):
+        """Tests change of email or password"""
+        click.click_text_part('My Account')
+        click.click_text_part('change email or password')
+        locate.locate_text_part('username')
+        locate.locate_text_part('new password')
+        click.click_value('Save Profile')

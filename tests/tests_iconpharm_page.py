@@ -16,6 +16,7 @@ class TestIconPharm(object):
                        base, click, locate):
         """Tests register"""
         base.open_home_page('https://iconpharm.com/logout')
+        time.sleep(2)
         base.open_home_page('https://iconpharm.com/web-app/new-icons/all')
         time.sleep(2)
         click.click_xpath(LocIconPharm.register_button)
@@ -34,6 +35,7 @@ class TestIconPharm(object):
                     password, base, click, locate):
         """Tests login"""
         base.open_home_page('https://iconpharm.com/logout')
+        time.sleep(2)
         base.open_home_page('https://iconpharm.com/web-app/new-icons/all')
         time.sleep(2)
         click.click_xpath(LocIconPharm.login_button)

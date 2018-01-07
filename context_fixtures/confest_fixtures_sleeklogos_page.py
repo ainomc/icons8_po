@@ -1,4 +1,5 @@
 import pytest
+import time
 from context_fixtures.confest_fixtures_drivers import current_browser
 from logic.logic_base_page import LogBase
 from logic.logic_click_base import LogClickBase
@@ -20,6 +21,7 @@ def setup_cls_sleeklogos(request):
     base.input_text_to_xpath(login, LocSleekLogos.email_field)
     base.input_text_to_xpath(password, LocSleekLogos.password_field)
     click.click_value('Login')
+    time.sleep(2)
     base.open_home_page(url)
 
 
