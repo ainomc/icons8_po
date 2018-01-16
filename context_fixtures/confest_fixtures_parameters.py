@@ -12,16 +12,16 @@ def pytest_addoption(parser):
                      default="dev", help="server")
 
     parser.addoption("--landing_url", action="store",
-                     default="https://dev.icons8.com/icon/",
+                     default="http://dev.icons8.com/icon/",
                      help="landing_url")
     parser.addoption("--icon8_mobile_url", action="store",
-                     default="https://dev.icons8.com/icons/",
+                     default="http://dev.icons8.com/icons/",
                      help="icon8_mobile_url")
     parser.addoption("--sleeklogos_url", action="store",
-                     default="https://sleeklogos.design/web-app/new-icons/all",
+                     default="http://sleeklogos.design/web-app/new-icons/all",
                      help="sleeklogos_url")
     parser.addoption("--iconpharm_url", action="store",
-                     default="https://iconpharm.com/web-app/new-icons/all",
+                     default="http://iconpharm.com/web-app/new-icons/all",
                      help="iconpharm_url")
 
 
